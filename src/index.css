@@ -1,5 +1,7 @@
 :root {
   background-color: #FDFDFF;
+  height: fit-content;
+  width: fit-content;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

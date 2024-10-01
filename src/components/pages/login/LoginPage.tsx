@@ -1,35 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './LoginPage.css'
+import Grid from "@mui/material/Grid2";
+import Layout from "../../common/Layout";
+import { images } from "../../../theme/images";
+import "./LoginPage.css";
 
 function LoginPage() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/LoginPage.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+	<Layout>
+		<Grid className="side-image-holder" size={{ xs: 0, sm: 0, md: 6 }}>
+			<img src={ images.logoSide } />
+		</Grid>
+		<Grid size={6}>
+		</Grid>
+	</Layout>
+  );
+};
 
-export default LoginPage
+export default LoginPage;

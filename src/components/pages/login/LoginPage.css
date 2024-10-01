@@ -1,0 +1,11 @@
+.side-image-holder {
+    max-height: 98vh;
+    max-width: 98vw;
+}
+
+.side-image-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
