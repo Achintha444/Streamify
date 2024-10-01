@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import { Typography } from '@mui/material'
+import './LoginPage.css'
 
-function App() {
+function LoginPage() {
   const [count, setCount] = useState(0)
 
   return (
@@ -12,9 +11,6 @@ function App() {
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
-          <Typography variant='body1'>
-            asdadsa
-          </Typography>
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -26,7 +22,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/LoginPage.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
@@ -36,4 +32,4 @@ function App() {
   )
 }
 
-export default App
+export default LoginPage
