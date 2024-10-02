@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Streamify: Information Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was started to learn about designing and development of responsive information dashboards. The dashboard will be built using React.js and Material-UI. The dashboard is used to visualize the data from the server and provide a user-friendly interface for the users to interact with the data. This will be a single page application, with the following features:
 
-Currently, two official plugins are available:
+1. User authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Data visualization using charts and graphs
 
-## Expanding the ESLint configuration
+3. User-friendly interface for the users to interact with the data
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+4. Responsive design for different screen sizes
 
-- Configure the top-level `parserOptions` property like this:
+## Design Steps
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Wireframing
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Since the project was started as a personal learning project no user research was done as the goal was the project on to polish my skills on designing and development of responsive information dashboards. The wireframing steps will be discussed in the next steps.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+I used Excalidraw to create wireframes, mainly due to its simplicity and ease of use. It allows me to quickly sketch out ideas and concepts, making it an invaluable tool for brainstorming and collaboration.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+As the first I designed the sitemap for the dashboard. The site map is a visual representation of the website's structure and layout. It helps to understand the relationship between different pages and sections of the website.
+
+![Sitemap](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Then before moving in to Excalidraw, I scribbled some paper wireframes to get a better understanding of the layout and design of the dashboard.
+
+After that, I started designing the wireframes for the dashboard. The wireframes were designed for both desktop and mobile devices. The wireframes were designed to be responsive and to adapt to different screen sizes.
+
+### Prototyping
+This part of the project is still in progress. These steps will be updated once the project is completed.
