@@ -27,6 +27,20 @@ function LoginPage() {
 				</div>
 			</Stack>
 		</Grid>
+		<Grid className="side-image-holder-sm" size={{ xs: 4, sm: 4, md: 0}}>
+			<img src={ images.loginSideSm } />
+			<Stack
+				className="side-image-content-sm"
+				direction="column"
+			>
+				<Stack className="side-image-content-top-sm">
+					<img src={ images.logoWhite } />
+					<Typography variant="subtitle1" className="side-image-content-top-text-sm">
+						Information Dashboard
+					</Typography>
+				</Stack>
+			</Stack>
+		</Grid>
 		<Grid className="login-content-holder" size={{ xs: 4, sm: 4, md: 7}}>
 			<Stack className="login-content">
 				<Stack className="login-content-header-form" spacing={ 8 }>
@@ -34,7 +48,7 @@ function LoginPage() {
 						<Typography variant="h4" className="login-content-title">
 							Welcome Back
 						</Typography>
-						<Typography variant="body1" className="login-content-subtitle">
+						<Typography variant="body1" className="login-content-main-subtitle">
 							Sign-in with your official Streamify account
 						</Typography>
 					</Stack>

@@ -1,4 +1,5 @@
 import loginSide from "./pages/login/login-side.webp";
+import loginSideSm from "./pages/login/login-side-sm.webp";
 import logoWhite from "./common/logo-white.svg";
 import asgardeoLogo from "./pages/login/asgardeo.webp";
 
@@ -6,5 +7,6 @@ import asgardeoLogo from "./pages/login/asgardeo.webp";
 export const images = {
     asgadeoLogo: asgardeoLogo,
     loginSide: loginSide,
-    logoWhite: logoWhite
+    logoWhite: logoWhite,
+    loginSideSm: loginSideSm
 };
