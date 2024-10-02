@@ -20,11 +20,17 @@ I used Excalidraw to create wireframes, mainly due to its simplicity and ease of
 
 As the first I designed the sitemap for the dashboard. The site map is a visual representation of the website's structure and layout. It helps to understand the relationship between different pages and sections of the website.
 
-![Sitemap](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Sitemap](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-1.webp)
 
 Then before moving in to Excalidraw, I scribbled some paper wireframes to get a better understanding of the layout and design of the dashboard.
 
+![paper-wireframe-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-3.webp)
+
+![paper-wireframe-2](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-14.webp)
+
 After that, I started designing the wireframes for the dashboard. The wireframes were designed for both desktop and mobile devices. The wireframes were designed to be responsive and to adapt to different screen sizes.
+
+![digital-wireframe-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-2.webp)
 
 ### Prototyping
 This part of the project is still in progress. These steps will be updated once the project is completed.
