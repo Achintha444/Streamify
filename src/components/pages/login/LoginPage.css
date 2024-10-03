@@ -113,7 +113,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: var(--padding-side-image-content);
+    --padding-side-image-content: 64px;
+    --padding-login-form-top: 96px;
 }
 
 .login-content {
@@ -121,6 +122,7 @@
     height: 100%;
     justify-content: flex-end;
     align-items: center;
+    padding-bottom: var(--padding-side-image-content);
 }
 
 @media (max-width: 899px) {
@@ -131,6 +133,7 @@
 
 .login-content-header-form {
     height: 100%;
+    padding-top: var(--padding-login-form-top);
     justify-content: center;
     align-items: center;
 }
