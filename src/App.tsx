@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react";
-import LoginPage from "./components/pages/login/LoginPage"
+import LoginPage from "./features/login/pages/LoginPage";
 
 function App() {
 	const { state, signOut } = useAuthContext();
@@ -15,7 +15,7 @@ function App() {
 				}
 				<button onClick={() => signOut()}>Sign Out</button>
 			</div>
-			);
+		);
 	}
 	return <LoginPage />
 }
