@@ -91,28 +91,13 @@ export const appTheme = responsiveFontSizes(createTheme({
             },
             styleOverrides: {
                 paper: {
+                    width: "255px",
                     border: `1px solid ${Colors.colorWhiteTernary}`,
                     borderRadius: "24px",
                     borderColor: Colors.colorWhiteTernary,
                     margin: "24px",
                     flexShrink: 0,
-                    boxSizing: "border-box",
-                    background: `linear-gradient(rgba(246, 248, 255, 1), rgba(246, 248, 255, 0))`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backdropFilter: 'blur(20px)',
-
-                    "&::before": {
-                        content: '""',
-                        position: 'absolute',
-                        inset: 0,
-                        background: `url(${images.drawer0}), url(${images.drawer0})`,
-                        opacity: 0.12,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
-                    }
+                    background: `url(${images.drawer})`,
                 },
             }
         }
