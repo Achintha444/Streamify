@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react";
-import LoginPage from "./features/login/pages/LoginPage";
+import OverviewPage from "./features/overview/pages/OverviewPage";
 
 function App() {
 	const { state, signOut } = useAuthContext();
@@ -17,7 +17,7 @@ function App() {
 			</div>
 		);
 	}
-	return <LoginPage />
+	return <OverviewPage />
 }
 
 export default App

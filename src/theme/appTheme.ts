@@ -1,48 +1,63 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { images } from "../assets/images";
+
+const Font = {
+    defaultFontFamily: "Open Sans",
+    secondaryFontFamily: "Pacifico"
+}
+
+const Colors = {
+    colorPrimary: "#4B6D9B",
+    colorTextPrimary: "#212933",
+    colorTextSecondary: "#6F7A88",
+    colorWhitePrimary: "#FDFDFF",
+    colorWhiteSecondary: "#F6F8FF",
+    colorWhiteTernary: "#C2D1FF"
+}
 
 export const appTheme = responsiveFontSizes(createTheme({
     palette: {
         primary: {
-            main: "#4B6D9B",
+            main: Colors.colorPrimary,
             contrastText: "#242424"
         },
         text: {
-            primary: "#212933",
-            secondary: "#6F7A88"
+            primary: Colors.colorTextPrimary,
+            secondary: Colors.colorTextSecondary,
         },
-        divider: "#212933",
+        divider: Colors.colorTextPrimary,
         background: {
-            default: "#FDFDFF",
-            paper: "#FDFDFF"
+            default: Colors.colorWhitePrimary,
+            paper: Colors.colorWhitePrimary,
 
         }
     },
     typography: {
         body1: {
-            fontFamily: "Open Sans",
-            color: "#212933"
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorTextPrimary,
         },
         button: {
-            fontFamily: "Open Sans"
+            fontFamily: Font.defaultFontFamily,
         },
         subtitle1: {
-            fontFamily: "Open Sans",
+            fontFamily: Font.defaultFontFamily,
             fontWeight: "500",
             fontSize: "14px"
         },
         subtitle2: {
-            fontFamily: "Open Sans",
+            fontFamily: Font.defaultFontFamily,
             fontWeight: "400",
             fontSize: "14px",
-            color: "#6F7A88"
+            color: Colors.colorTextSecondary,
         },
         h4: {
-            fontFamily: "Pacifico"
+            fontFamily: Font.secondaryFontFamily,
         },
         caption: {
-            fontFamily: "Open Sans",
+            fontFamily: Font.defaultFontFamily,
             fontSize: "12px",
-            color: "#6F7A88"
+            color: Colors.colorTextSecondary,
         }
     },
     components: {
@@ -65,10 +80,41 @@ export const appTheme = responsiveFontSizes(createTheme({
                 {
                     props: { variant: "contained" },
                     style: {
-                        color: "#FDFDFF"
+                        color: Colors.colorWhitePrimary,
                     }
                 }
             ]
         },
+        MuiDrawer: {
+            defaultProps: {
+                variant: "permanent"
+            },
+            styleOverrides: {
+                paper: {
+                    border: `1px solid ${Colors.colorWhiteTernary}`,
+                    borderRadius: "24px",
+                    borderColor: Colors.colorWhiteTernary,
+                    margin: "24px",
+                    flexShrink: 0,
+                    boxSizing: "border-box",
+                    background: `linear-gradient(rgba(246, 248, 255, 1), rgba(246, 248, 255, 0))`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backdropFilter: 'blur(20px)',
+
+                    "&::before": {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        background: `url(${images.drawer0}), url(${images.drawer0})`,
+                        opacity: 0.12,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                    }
+                },
+            }
+        }
     }
 }));
