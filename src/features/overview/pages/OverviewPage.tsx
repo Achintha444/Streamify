@@ -1,6 +1,4 @@
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
@@ -12,6 +10,7 @@ import { CSSObject, styled, Theme, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import Layout from "../../../components/layout/Layout";
 
 const drawerWidth = 240;
 
@@ -105,7 +104,7 @@ export default function OverviewPage() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Layout>
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -133,7 +132,6 @@ export default function OverviewPage() {
             {theme.direction === "rtl" ? "asd" : "xx"}
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List>
           {["Overview", "Users", "Artists", "Songs", "Revenue"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
@@ -145,11 +143,11 @@ export default function OverviewPage() {
                   },
                   open
                     ? {
-                        justifyContent: "initial",
-                      }
+                      justifyContent: "initial",
+                    }
                     : {
-                        justifyContent: "center",
-                      },
+                      justifyContent: "center",
+                    },
                 ]}
               >
                 <ListItemIcon
@@ -160,11 +158,11 @@ export default function OverviewPage() {
                     },
                     open
                       ? {
-                          mr: 3,
-                        }
+                        mr: 3,
+                      }
                       : {
-                          mr: "auto",
-                        },
+                        mr: "auto",
+                      },
                   ]}
                 >
                   {index % 2 === 0 ? "asd" : "asd"}
@@ -174,11 +172,11 @@ export default function OverviewPage() {
                   sx={[
                     open
                       ? {
-                          opacity: 1,
-                        }
+                        opacity: 1,
+                      }
                       : {
-                          opacity: 0,
-                        },
+                        opacity: 0,
+                      },
                   ]}
                 />
               </ListItemButton>
@@ -186,6 +184,6 @@ export default function OverviewPage() {
           ))}
         </List>
       </Drawer>
-    </Box>
+    </Layout>
   );
 }
