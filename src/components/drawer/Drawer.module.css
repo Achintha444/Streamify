@@ -1,0 +1,49 @@
+.uiDrawerListItemText>* {
+    color: var(--color-text-secondary) !important;
+    font-size: 14px !important;
+}
+
+.uiDrawerListItemIcon {
+    color: var(--color-text-secondary) !important;
+}
+
+.uiDrawerListItemIcon>* {
+    stroke-width: 1;
+}
+
+.uiDrawerListItemButton {
+    min-height: 48px !important;
+    padding-left: 20px !important;
+    justify-content: initial !important;
+    margin-left: 0px !important;
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+.uiDrawerListItemButton:hover {
+    background: var(--drawer-hover-card) !important;
+    border: 1px solid var(--color-card-stroke);
+    border-radius: 16px;
+    color: var(--color-primary) !important;
+    margin-left: 6px !important;
+    margin-right: 6px;
+    transition: margin-left 0.2s ease-in-out;
+    backdrop-filter: blur(var(--drawer-hover-card-background-blur));
+    box-shadow: var(--drawer-hover-card-shadow);
+    
+}
+
+/* Change text color when hovering over the button */
+.uiDrawerListItemButton:hover .uiDrawerListItemText>* {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+}
+
+/* Change icon color when hovering over the button */
+.uiDrawerListItemButton:hover .uiDrawerListItemIcon {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+}
+
+.uiDrawerListItemButton:hover .uiDrawerListItemIcon > * {
+    stroke-width: 1.5;
+}
