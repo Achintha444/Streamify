@@ -1,3 +1,14 @@
+.uiDrawerLogoContainer {
+    padding: 32px 20px !important;
+    padding-bottom: 18px !important;
+    display: inline-flex;
+    min-height: fit-content !important;
+}
+
+.uiDrawerLogo {
+    max-height: 24px;
+}
+
 .uiDrawerStack {
     height: 100%;
 }

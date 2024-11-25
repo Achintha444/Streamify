@@ -1,14 +1,13 @@
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { CSSObject, Theme, styled, useTheme } from "@mui/material/styles";
+import { CSSObject, Theme, styled } from "@mui/material/styles";
 import { Home01Icon } from "hugeicons-react";
-import { useState } from "react";
+import { images } from "../../../assets/images";
 import styles from "../../../components/drawer/Drawer.module.css";
 import Layout from "../../../components/layout/Layout";
 
@@ -65,25 +64,21 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 );
 
 export default function OverviewPage() {
-    const theme = useTheme();
-    const [ open, setOpen ] = useState(true);
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-
     return (
         <Layout>
-            <Drawer open={ open }>
-                <DrawerHeader>
-                    <IconButton onClick={ handleDrawerClose }>
-                        { theme.direction === "rtl" ? "asd" : "xx" }
-                    </IconButton>
+            <Drawer open={ true }>
+                <DrawerHeader className={ styles["uiDrawerLogoContainer"] }>
+                    <img className={ styles["uiDrawerLogo"] } src={ images.logoPrimary } />
                 </DrawerHeader>
                 <Stack className={ styles["uiDrawerStack"] } justifyContent="space-between">
                     <List className={ styles["uiDrawerList"] }>
                         { [ "Overview", "Users", "Artists", "Songs", "Revenue" ].map((text) => (
-                            <ListItem className={ styles["uiDrawerListItem"] } key={ text } disablePadding sx={ { display: "block" } }>
+                            <ListItem
+                                className={ styles["uiDrawerListItem"] }
+                                key={ text }
+                                disablePadding
+                                sx={ { display: "block" } }
+                            >
                                 <ListItemButton
                                     className={ styles["uiDrawerListItemButton"] }
                                 >
@@ -121,11 +116,21 @@ export default function OverviewPage() {
                         )) }
                     </List>
                     <Button className={ styles["uiDrawerUserDetails"] } variant="text">
-                        <Stack className={ styles["uiDrawerUserDetailsContainer"] }  direction="row" alignItems="center" justifyContent="flex-start" spacing={ 2 }>
+                        <Stack
+                            className={ styles["uiDrawerUserDetailsContainer"] }
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="flex-start"
+                            spacing={ 2 }
+                        >
                             <Avatar sizes="small"/>
                             <Stack alignItems="flex-start">
-                                <Typography variant="body2" className={ styles["uiDrawerUsername"] }>Username</Typography>
-                                <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] }>Email</Typography>
+                                <Typography variant="body2" className={ styles["uiDrawerUsername"] }>
+                                    Username
+                                </Typography>
+                                <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] }>
+                                    Email
+                                </Typography>
                             </Stack>
                         </Stack>
                     </Button>
