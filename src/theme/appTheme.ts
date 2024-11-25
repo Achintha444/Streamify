@@ -52,7 +52,7 @@ export const appTheme = responsiveFontSizes(createTheme({
         subtitle2: {
             fontFamily: Font.defaultFontFamily,
             fontWeight: "400",
-            fontSize: "14px",
+            fontSize: "12px",
             color: Colors.colorTextSecondary
         },
         h4: {
@@ -102,7 +102,7 @@ export const appTheme = responsiveFontSizes(createTheme({
                     width: "255px",
                     border: `1px solid ${Colors.colorWhiteTernary}`,
                     borderRadius: "24px",
-                    height: "90vh",
+                    height: "94vh",
                     margin: "24px",
                     flexShrink: 0,
                     background: `url(${images.drawer})`

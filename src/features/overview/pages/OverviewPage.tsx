@@ -1,4 +1,4 @@
-import { Avatar, Stack, Typography } from "@mui/material";
+import { Avatar, Button, Stack, Typography } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
@@ -8,7 +8,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { CSSObject, Theme, styled, useTheme } from "@mui/material/styles";
 import { Home01Icon } from "hugeicons-react";
-import * as React from "react";
+import { useState } from "react";
 import styles from "../../../components/drawer/Drawer.module.css";
 import Layout from "../../../components/layout/Layout";
 
@@ -35,7 +35,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
     }
 });
 
-const DrawerHeader: any = styled("div")(({ theme }) => ({
+const DrawerHeader = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar
@@ -66,7 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 
 export default function OverviewPage() {
     const theme = useTheme();
-    const [ open, setOpen ] = React.useState(true);
+    const [ open, setOpen ] = useState(true);
 
     const handleDrawerClose = () => {
         setOpen(false);
@@ -87,14 +87,9 @@ export default function OverviewPage() {
                                 <ListItemButton
                                     className={ styles["uiDrawerListItemButton"] }
                                 >
-
                                     <ListItemIcon
                                         className={ styles["uiDrawerListItemIcon"] }
                                         sx={ [
-                                            {
-                                                minWidth: 0,
-                                                justifyContent: "center"
-                                            },
                                             open
                                                 ? {
                                                     mr: 3
@@ -125,13 +120,15 @@ export default function OverviewPage() {
                             </ListItem>
                         )) }
                     </List>
-                    <Stack direction="row" alignItems="center" justifyContent="center">
-                        <Avatar />
-                        <Stack>
-                            <Typography variant="body2">Username</Typography>
-                            <Typography>Role</Typography>
+                    <Button className={ styles["uiDrawerUserDetails"] } variant="text">
+                        <Stack className={ styles["uiDrawerUserDetailsContainer"] }  direction="row" alignItems="center" justifyContent="flex-start" spacing={ 2 }>
+                            <Avatar sizes="small"/>
+                            <Stack alignItems="flex-start">
+                                <Typography variant="body2" className={ styles["uiDrawerUsername"] }>Username</Typography>
+                                <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] }>Email</Typography>
+                            </Stack>
                         </Stack>
-                    </Stack>
+                    </Button>
                 </Stack>
             </Drawer>
         </Layout>
