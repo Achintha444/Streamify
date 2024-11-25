@@ -4,7 +4,7 @@ import { images } from "../assets/images";
 const Font = {
     defaultFontFamily: "Open Sans",
     secondaryFontFamily: "Pacifico"
-}
+};
 
 const Colors = {
     colorPrimary: "#4B6D9B",
@@ -13,7 +13,7 @@ const Colors = {
     colorWhitePrimary: "#FDFDFF",
     colorWhiteSecondary: "#F6F8FF",
     colorWhiteTernary: "#C2D1FF"
-}
+};
 
 export const appTheme = responsiveFontSizes(createTheme({
     palette: {
@@ -23,22 +23,26 @@ export const appTheme = responsiveFontSizes(createTheme({
         },
         text: {
             primary: Colors.colorTextPrimary,
-            secondary: Colors.colorTextSecondary,
+            secondary: Colors.colorTextSecondary
         },
         divider: Colors.colorTextPrimary,
         background: {
             default: Colors.colorWhitePrimary,
-            paper: Colors.colorWhitePrimary,
+            paper: Colors.colorWhitePrimary
 
         }
     },
     typography: {
         body1: {
             fontFamily: Font.defaultFontFamily,
-            color: Colors.colorTextPrimary,
+            color: Colors.colorTextPrimary
+        },
+        body2: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorTextSecondary
         },
         button: {
-            fontFamily: Font.defaultFontFamily,
+            fontFamily: Font.defaultFontFamily
         },
         subtitle1: {
             fontFamily: Font.defaultFontFamily,
@@ -49,15 +53,15 @@ export const appTheme = responsiveFontSizes(createTheme({
             fontFamily: Font.defaultFontFamily,
             fontWeight: "400",
             fontSize: "14px",
-            color: Colors.colorTextSecondary,
+            color: Colors.colorTextSecondary
         },
         h4: {
-            fontFamily: Font.secondaryFontFamily,
+            fontFamily: Font.secondaryFontFamily
         },
         caption: {
             fontFamily: Font.defaultFontFamily,
             fontSize: "12px",
-            color: Colors.colorTextSecondary,
+            color: Colors.colorTextSecondary
         }
     },
     components: {
@@ -80,7 +84,7 @@ export const appTheme = responsiveFontSizes(createTheme({
                 {
                     props: { variant: "contained" },
                     style: {
-                        color: Colors.colorWhitePrimary,
+                        color: Colors.colorWhitePrimary
                     }
                 }
             ]
@@ -101,9 +105,9 @@ export const appTheme = responsiveFontSizes(createTheme({
                     height: "90vh",
                     margin: "24px",
                     flexShrink: 0,
-                    background: `url(${images.drawer})`,
+                    background: `url(${images.drawer})`
                 }
             }
-        },
+        }
     }
 }));

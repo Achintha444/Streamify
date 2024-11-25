@@ -3,4 +3,4 @@
  */
 export const links = {
     streamifyPortfolio: "https://achintha-isuru.vercel.app/projects/Streamify:%20Information%20Dashboard"
-}
+};

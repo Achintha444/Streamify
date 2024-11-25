@@ -8,11 +8,11 @@ import "./styles/index.css";
 import { ThemeProvider } from "@mui/material";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-      <AuthProvider config={ authConfig }>
-        <ThemeProvider theme={ appTheme }>
-          <App />
-        </ThemeProvider>
-      </AuthProvider>
-  </StrictMode>
-)
+    <StrictMode>
+        <AuthProvider config={ authConfig }>
+            <ThemeProvider theme={ appTheme }>
+                <App />
+            </ThemeProvider>
+        </AuthProvider>
+    </StrictMode>
+);
