@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { createTheme, CSSObject, responsiveFontSizes, Theme } from "@mui/material/styles";
 import { images } from "../assets/images";
 
 const Font = {
@@ -14,6 +14,26 @@ const Colors = {
     colorWhiteSecondary: "#F6F8FF",
     colorWhiteTernary: "#C2D1FF"
 };
+
+const openedMixin = (theme: Theme): CSSObject => ({
+    overflowX: "hidden",
+    transition: theme.transitions.create("width", {
+        duration: theme.transitions.duration.enteringScreen,
+        easing: theme.transitions.easing.sharp
+    })
+});
+
+const closedMixin = (theme: Theme): CSSObject => ({
+    overflowX: "hidden",
+    transition: theme.transitions.create("width", {
+        duration: theme.transitions.duration.leavingScreen,
+        easing: theme.transitions.easing.sharp
+    }),
+    width: `calc(${theme.spacing(7)} + 1px)`,
+    [theme.breakpoints.up("sm")]: {
+        width: `calc(${theme.spacing(8)} + 1px)`
+    }
+});
 
 export const appTheme = responsiveFontSizes(createTheme({
     palette: {
@@ -105,9 +125,34 @@ export const appTheme = responsiveFontSizes(createTheme({
                     height: "94vh",
                     margin: "24px",
                     flexShrink: 0,
-                    background: `url(${images.drawer})`
+                    background: `url(${images.drawer})`,
+                    boxSizing: "border-box"
+                },
+                root: ({ theme, ownerState }) => {
+                    const open = ownerState.open;
+
+                    return {
+                        ...(open ? openedMixin(theme) : closedMixin(theme)),
+                        "& .MuiDrawer-paper": open
+                            ? openedMixin(theme)
+                            : closedMixin(theme)
+                    };
                 }
-            }
+            },
+            variants: [
+                {
+                    props: { open: true },
+                    style: {
+                        // Additional open state styles if needed
+                    }
+                },
+                {
+                    props: { open: false },
+                    style: {
+                        // Additional closed state styles if needed
+                    }
+                }
+            ]
         }
     }
 }));

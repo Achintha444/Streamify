@@ -1,10 +1,10 @@
+import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
-import "../styles/LoginPage.css";
 import Layout from "../../../components/layout/Layout";
 import { links } from "../../../utils/links";
-import { useAuthContext } from "@asgardeo/auth-react";
+import "../styles/LoginPage.css";
 
 function LoginPage() {
 
@@ -67,12 +67,17 @@ function LoginPage() {
 								Continue with Asgardeo
                             </Button>
                             <Typography variant="subtitle2" className="login-content-subtitle">
-								If you do not have an account, please reach out to your system administrator for access. They will provide you with the necessary credentials to log in and access the dashboard. For any further assistance or troubleshooting, feel free to contact support at <a href={ links.streamifyPortfolio } target="_blank">admin@streamify.com</a>.
+								If you do not have an account, please reach out to your system administrator for access.
+                                They will provide you with the necessary credentials to log in and access the dashboard.
+                                For any further assistance or troubleshooting, feel free to contact support at 
+                                <a href={ links.streamifyPortfolio } target="_blank">admin@streamify.com</a>.
                             </Typography>
                         </Stack>
                     </Stack>
                     <Typography variant="caption" className="login-content-terms">
-						By sign in you are agreeing to our <a href={ links.streamifyPortfolio } target="_blank">privacy policy</a> and our <a href={ links.streamifyPortfolio } target="_blank">terms and conditions</a>.
+						By sign in you are agreeing to our 
+                        <a href={ links.streamifyPortfolio } target="_blank">privacy policy</a> 
+                        and our <a href={ links.streamifyPortfolio } target="_blank">terms and conditions</a>.
                     </Typography>
                 </Stack>
             </Grid>

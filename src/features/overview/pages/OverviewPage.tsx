@@ -5,34 +5,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { CSSObject, Theme, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { Home01Icon } from "hugeicons-react";
+import { useEffect, useState } from "react";
 import { images } from "../../../assets/images";
 import styles from "../../../components/drawer/Drawer.module.css";
 import Layout from "../../../components/layout/Layout";
-
-const drawerWidth = 240;
-
-const openedMixin = (theme: Theme): CSSObject => ({
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen
-    }),
-    overflowX: "hidden"
-});
-
-const closedMixin = (theme: Theme): CSSObject => ({
-    transition: theme.transitions.create("width", {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
-    }),
-    overflowX: "hidden",
-    width: `calc(${theme.spacing(7)} + 1px)`,
-    [theme.breakpoints.up("sm")]: {
-        width: `calc(${theme.spacing(8)} + 1px)`
-    }
-});
+import { TABLET_BREAKPOINT } from "../../../utils/constants/constants";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -40,35 +19,40 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     ...theme.mixins.toolbar
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" })(
-    ({ theme }) => ({
-        width: drawerWidth,
-        boxSizing: "border-box",
-        variants: [
-            {
-                props: ({ open }) => open,
-                style: {
-                    ...openedMixin(theme),
-                    "& .MuiDrawer-paper": openedMixin(theme)
-                }
-            },
-            {
-                props: ({ open }) => !open,
-                style: {
-                    ...closedMixin(theme),
-                    "& .MuiDrawer-paper": closedMixin(theme)
-                }
-            }
-        ]
-    })
-);
-
 export default function OverviewPage() {
+
+    const [ isDrawerOpen, setDrawerOpen ] = useState(true);
+
+    useEffect(() => {
+        // Function to check and update drawer state based on screen width
+        const checkDrawerState = () => {
+            const isTabletOrSmaller = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
+
+            setDrawerOpen(!isTabletOrSmaller);
+        };
+
+        // Check initial screen size
+        checkDrawerState();
+
+        // Add event listener for window resize
+        window.addEventListener("resize", checkDrawerState);
+
+        // Cleanup the event listener
+        return () => window.removeEventListener("resize", checkDrawerState);
+    }, []);
+
+    const DrawerLogo = () => (
+        <img
+            className={ styles["uiDrawerLogo"] }
+            src={ isDrawerOpen ? images.logoPrimary : images.logoPrimarySmall }
+        />
+    );
+
     return (
         <Layout>
-            <Drawer open={ true }>
+            <MuiDrawer open={ isDrawerOpen } variant="permanent" >
                 <DrawerHeader className={ styles["uiDrawerLogoContainer"] }>
-                    <img className={ styles["uiDrawerLogo"] } src={ images.logoPrimary } />
+                    <DrawerLogo />
                 </DrawerHeader>
                 <Stack className={ styles["uiDrawerStack"] } justifyContent="space-between">
                     <List className={ styles["uiDrawerList"] }>
@@ -79,21 +63,8 @@ export default function OverviewPage() {
                                 disablePadding
                                 sx={ { display: "block" } }
                             >
-                                <ListItemButton
-                                    className={ styles["uiDrawerListItemButton"] }
-                                >
-                                    <ListItemIcon
-                                        className={ styles["uiDrawerListItemIcon"] }
-                                        sx={ [
-                                            open
-                                                ? {
-                                                    mr: 3
-                                                }
-                                                : {
-                                                    mr: "auto"
-                                                }
-                                        ] }
-                                    >
+                                <ListItemButton className={ styles["uiDrawerListItemButton"] } >
+                                    <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
                                         <Home01Icon />
                                     </ListItemIcon>
                                     <ListItemText
@@ -101,15 +72,6 @@ export default function OverviewPage() {
                                         primary={
                                             <Typography variant="body2">{ text }</Typography>
                                         }
-                                        sx={ [
-                                            open
-                                                ? {
-                                                    opacity: 1
-                                                }
-                                                : {
-                                                    opacity: 0
-                                                }
-                                        ] }
                                     />
                                 </ListItemButton>
                             </ListItem>
@@ -135,7 +97,7 @@ export default function OverviewPage() {
                         </Stack>
                     </Button>
                 </Stack>
-            </Drawer>
+            </MuiDrawer>
         </Layout>
     );
 }
