@@ -1,4 +1,4 @@
-import { Avatar, Button, Stack, Typography } from "@mui/material";
+import { Avatar, Button, IconButton, Stack, Typography } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -24,6 +24,28 @@ export default function OverviewPage() {
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<DrawerVariant>("permanent");
 
+    /**
+     * Handle the opening of the drawer on mobile devices
+     */
+    const handleDrawerOpenMobile = (): void => {
+        setDrawerOpen(true);
+        setDrawerVariant("permanent");
+    };
+
+    /**
+     * Handle the closing of the drawer on mobile devices
+     */
+    const handleDrawerCloseMobile = (): void => {
+        setDrawerOpen(false);
+        setDrawerVariant("temporary");
+    };
+
+    /**
+     * Check if the drawer is open and if it is in permanent mode.
+     */
+    const checkIfDrawerIsOpen = (): boolean => 
+        isDrawerOpen && drawerVariant === "permanent";
+
     useEffect(() => {
         // Function to check and update drawer state based on screen width
         const checkDrawerState = () => {
@@ -31,8 +53,7 @@ export default function OverviewPage() {
             const isTabletOrSmaller = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
 
             if (isMobileOrSmaller) {
-                setDrawerOpen(false);
-                setDrawerVariant("temporary");
+                handleDrawerCloseMobile();
             } else {
                 setDrawerOpen(!isTabletOrSmaller);
                 setDrawerVariant("permanent");
@@ -58,6 +79,9 @@ export default function OverviewPage() {
 
     return (
         <Layout>
+            <IconButton>
+                <Home01Icon />
+            </IconButton>
             <MuiDrawer open={ isDrawerOpen } variant={ drawerVariant } >
                 <DrawerHeader className={ styles["uiDrawerLogoContainer"] }>
                     <DrawerLogo />

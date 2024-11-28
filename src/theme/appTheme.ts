@@ -36,6 +36,87 @@ const closedMixin = (theme: Theme): CSSObject => ({
 });
 
 export const appTheme = responsiveFontSizes(createTheme({
+    components: {
+        MuiButton: {
+            defaultProps: {
+                autoCapitalize: "none",
+                disableElevation: true,
+                variant: "contained"
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    textTransform: "none",
+                    padding: "10px 20px"
+                }
+            },
+            variants: [
+                {
+                    props: { variant: "contained" },
+                    style: {
+                        color: Colors.colorWhitePrimary
+                    }
+                }
+            ]
+        },
+        MuiDrawer: {
+            defaultProps: {
+                variant: "permanent"
+            },
+            styleOverrides: {
+                docked: {
+                    height: "100%",
+                    width: "255px"
+                },
+                paper: {
+                    width: "255px",
+                    border: `1px solid ${Colors.colorWhiteTernary}`,
+                    borderRadius: "24px",
+                    height: "94vh",
+                    margin: "24px",
+                    flexShrink: 0,
+                    background: `url(${images.drawer})`,
+                    boxSizing: "border-box"
+                },
+                root: ({ theme, ownerState }) => {
+                    const open = ownerState.open;
+
+                    return {
+                        ...(open ? openedMixin(theme) : closedMixin(theme)),
+                        "& .MuiDrawer-paper": open
+                            ? openedMixin(theme)
+                            : closedMixin(theme)
+                    };
+                }
+            },
+            variants: [
+                {
+                    props: { open: true },
+                    style: {}
+                },
+                {
+                    props: { open: false },
+                    style: {}
+                }
+            ]
+        },
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    color: Colors.colorTextPrimary
+                }
+            }
+        },
+        MuiListItemIcon: {
+            styleOverrides: {
+                root: {
+                    color: Colors.colorTextPrimary
+                }
+            }
+        }
+    },
     palette: {
         primary: {
             main: Colors.colorPrimary,
@@ -82,77 +163,6 @@ export const appTheme = responsiveFontSizes(createTheme({
             fontFamily: Font.defaultFontFamily,
             fontSize: "12px",
             color: Colors.colorTextSecondary
-        }
-    },
-    components: {
-        MuiButton: {
-            defaultProps: {
-                variant: "contained",
-                disableElevation: true,
-                autoCapitalize: "none"
-            },
-            styleOverrides: {
-                root: {
-                    borderRadius: "8px",
-                    textTransform: "none",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                    padding: "10px 20px"
-                }
-            },
-            variants: [
-                {
-                    props: { variant: "contained" },
-                    style: {
-                        color: Colors.colorWhitePrimary
-                    }
-                }
-            ]
-        },
-        MuiDrawer: {
-            defaultProps: {
-                variant: "permanent"
-            },
-            styleOverrides: {
-                docked: {
-                    height: "100%",
-                    width: "255px"
-                },
-                paper: {
-                    width: "255px",
-                    border: `1px solid ${Colors.colorWhiteTernary}`,
-                    borderRadius: "24px",
-                    height: "94vh",
-                    margin: "24px",
-                    flexShrink: 0,
-                    background: `url(${images.drawer})`,
-                    boxSizing: "border-box"
-                },
-                root: ({ theme, ownerState }) => {
-                    const open = ownerState.open;
-
-                    return {
-                        ...(open ? openedMixin(theme) : closedMixin(theme)),
-                        "& .MuiDrawer-paper": open
-                            ? openedMixin(theme)
-                            : closedMixin(theme)
-                    };
-                }
-            },
-            variants: [
-                {
-                    props: { open: true },
-                    style: {
-                        // Additional open state styles if needed
-                    }
-                },
-                {
-                    props: { open: false },
-                    style: {
-                        // Additional closed state styles if needed
-                    }
-                }
-            ]
         }
     }
 }));
