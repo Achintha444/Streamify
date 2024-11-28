@@ -1,10 +1,11 @@
-import importPlugin from 'eslint-plugin-import';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tsdocPlugin from 'eslint-plugin-tsdoc';
-import globals from 'globals';
-import * as tseslint from 'typescript-eslint';
+import importPlugin from "eslint-plugin-import";
+import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tsdocPlugin from "eslint-plugin-tsdoc";
+import globals from "globals";
+import explicitGenerics from "eslint-plugin-require-explicit-generics";
+import * as tseslint from "typescript-eslint";
 
 // Define line padding rules
 const LINE_PADDING_RULES = [
@@ -14,21 +15,22 @@ const LINE_PADDING_RULES = [
 ];
 
 export default tseslint.config(
-    { ignores: ['dist'] },
+    { ignores: ["dist"] },
     ...tseslint.configs.recommended,
     {
-        files: ['**/*.{ts,tsx}'],
+        files: ["**/*.{ts,tsx}"],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.browser,
         },
         plugins: {
-            '@typescript-eslint': tseslint.plugin,
-            'react-refresh': reactRefresh,
+            "@typescript-eslint": tseslint.plugin,
+            "react-refresh": reactRefresh,
             import: importPlugin,
             react: reactPlugin,
             "react-hooks": reactHooks,
-            tsdoc: tsdocPlugin
+            tsdoc: tsdocPlugin,
+            "explicitGenerics": explicitGenerics
         },
         rules: {
             // General Rules
@@ -109,7 +111,11 @@ export default tseslint.config(
             ],
             "react/no-children-prop": 0,
             "react/no-danger": 2,
-            "react/prop-types": 1
+            "react/prop-types": 1,
+            "explicitGenerics/require-explicit-generics": [
+                1,
+                ["useState", "React.useState"]
+            ]
         }
     }
 );
