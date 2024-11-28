@@ -100,9 +100,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .uiDrawerLogoContainer {
-        padding-left: 18px !important;
-    }
     .uiDrawerListItemText {
         display: none;
     }
@@ -111,13 +108,13 @@
         padding-left: 18px !important;
     }
 
-    .uiDrawerListItemButton:hover {
+    .uiDrawerListItemButton {
         display: flex !important;
         justify-content: center !important;
         padding-left: 16px !important;
     }
 
-    .uiDrawerListItemButton:hover .uiDrawerListItemIcon {
+    .uiDrawerListItemIcon {
         margin-right: 0px !important;
     }
 
