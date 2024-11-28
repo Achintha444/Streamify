@@ -10,8 +10,9 @@ import { Home01Icon } from "hugeicons-react";
 import { useEffect, useState } from "react";
 import { images } from "../../../assets/images";
 import styles from "../../../components/drawer/Drawer.module.css";
+import { DrawerVariant } from "../../../components/drawer/models/drawerVariant";
 import Layout from "../../../components/layout/Layout";
-import { TABLET_BREAKPOINT } from "../../../utils/constants/constants";
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../../utils/constants/constants";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -20,15 +21,22 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function OverviewPage() {
-
-    const [ isDrawerOpen, setDrawerOpen ] = useState(true);
+    const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
+    const [ drawerVariant, setDrawerVariant ] = useState<DrawerVariant>("permanent");
 
     useEffect(() => {
         // Function to check and update drawer state based on screen width
         const checkDrawerState = () => {
+            const isMobileOrSmaller = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
             const isTabletOrSmaller = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
 
-            setDrawerOpen(!isTabletOrSmaller);
+            if (isMobileOrSmaller) {
+                setDrawerOpen(false);
+                setDrawerVariant("temporary");
+            } else {
+                setDrawerOpen(!isTabletOrSmaller);
+                setDrawerVariant("permanent");
+            }
         };
 
         // Check initial screen size
@@ -50,7 +58,7 @@ export default function OverviewPage() {
 
     return (
         <Layout>
-            <MuiDrawer open={ isDrawerOpen } variant="permanent" >
+            <MuiDrawer open={ isDrawerOpen } variant={ drawerVariant } >
                 <DrawerHeader className={ styles["uiDrawerLogoContainer"] }>
                     <DrawerLogo />
                 </DrawerHeader>
