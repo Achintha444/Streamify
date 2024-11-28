@@ -61,7 +61,6 @@ export default function OverviewPage() {
                                 className={ styles["uiDrawerListItem"] }
                                 key={ text }
                                 disablePadding
-                                sx={ { display: "block" } }
                             >
                                 <ListItemButton className={ styles["uiDrawerListItemButton"] } >
                                     <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
