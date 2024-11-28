@@ -81,11 +81,10 @@ export default function OverviewPage() {
                             className={ styles["uiDrawerUserDetailsContainer"] }
                             direction="row"
                             alignItems="center"
-                            justifyContent="flex-start"
                             spacing={ 2 }
                         >
-                            <Avatar sizes="small"/>
-                            <Stack alignItems="flex-start">
+                            <Avatar className={ styles["uiDrawerUserDetailsAvatar"] } sizes="small"/>
+                            <Stack className={ styles["uiDrawerUserDetailsTextContainer"] } alignItems="flex-start">
                                 <Typography variant="body2" className={ styles["uiDrawerUsername"] }>
                                     Username
                                 </Typography>

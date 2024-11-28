@@ -120,4 +120,28 @@
     .uiDrawerListItemButton:hover .uiDrawerListItemIcon {
         margin-right: 0px !important;
     }
+
+    .uiDrawerUserDetails {
+        justify-content: center;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        min-width: fit-content !important;
+    }
+
+    .uiDrawerUserDetailsContainer {
+        justify-content: center;
+    }
+
+    .uiDrawerUserDetailsAvatar {
+        max-height: 36px;
+        max-width: 36px;
+    }
+
+    .uiDrawerUserDetailsTextContainer {
+        display: none !important;
+    }
+
+    .uiDrawerUserDetails:hover {
+        margin: 12px 2px !important;
+    }
 }
