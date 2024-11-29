@@ -83,7 +83,7 @@ export default function OverviewPage() {
             {
                 !checkIfDrawerIsOpen()
                     ? (
-                        <IconButton onClick={ handleDrawerOpenMobile }>
+                        <IconButton className={ styles["uiDrawerOpenButton"] } onClick={ handleDrawerOpenMobile }>
                             <Menu02Icon />
                         </IconButton>
                     ) : (
@@ -96,7 +96,10 @@ export default function OverviewPage() {
                                     width="100%"
                                 >
                                     <DrawerLogo />
-                                    <IconButton onClick={ handleDrawerCloseMobile }>
+                                    <IconButton
+                                        className={ styles["uiDrawerCloseButton"] }
+                                        onClick={ handleDrawerCloseMobile }
+                                    >
                                         <Cancel01Icon />
                                     </IconButton>
                                 </Stack>

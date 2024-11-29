@@ -1,3 +1,12 @@
+.uiDrawerOpenButton {
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.uiDrawerCloseButton {
+    display: none !important;
+}
+
 .uiDrawerLogoContainer {
     padding: 32px 20px !important;
     padding-bottom: 18px !important;
@@ -145,5 +154,11 @@
 
     .uiDrawerUserDetails:hover {
         margin: 12px 2px !important;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .uiDrawerCloseButton {
+        display: inline-flex !important;
     }
 }
