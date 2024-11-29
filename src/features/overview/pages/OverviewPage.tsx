@@ -29,7 +29,7 @@ export default function OverviewPage() {
      */
     const handleDrawerOpenMobile = (): void => {
         setDrawerOpen(true);
-        setDrawerVariant("permanent");
+        setDrawerVariant("temporary");
     };
 
     /**
@@ -87,7 +87,12 @@ export default function OverviewPage() {
                             <Menu02Icon />
                         </IconButton>
                     ) : (
-                        <MuiDrawer open={ isDrawerOpen } variant={ drawerVariant } >
+                        <MuiDrawer
+                            className={ styles["uiDrawer"] }
+                            open={ isDrawerOpen }
+                            variant={ drawerVariant }
+                            anchor="left"
+                        >
                             <DrawerHeader className={ styles["uiDrawerLogoContainer"] }>
                                 <Stack
                                     direction="row"
@@ -151,8 +156,6 @@ export default function OverviewPage() {
                         </MuiDrawer>
                     )
             }
-
-
         </Layout>
     );
 }

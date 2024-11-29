@@ -12,7 +12,8 @@ const Colors = {
     colorTextSecondary: "#6F7A88",
     colorWhitePrimary: "#FDFDFF",
     colorWhiteSecondary: "#F6F8FF",
-    colorWhiteTernary: "#C2D1FF"
+    colorWhiteTernary: "#C2D1FF",
+    colorWhiteTernaryBackdrop: ""
 };
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -37,6 +38,16 @@ const closedMixin = (theme: Theme): CSSObject => ({
 
 export const appTheme = responsiveFontSizes(createTheme({
     components: {
+        MuiBackdrop: {
+            styleOverrides: {
+                root: {
+                    backdropFilter: "blur(10px)",
+                    background: Colors.colorWhiteTernary,
+                    opacity: "0.4 !important",
+                    width: "100% !important"
+                }
+            }
+        },
         MuiButton: {
             defaultProps: {
                 autoCapitalize: "none",
@@ -48,8 +59,8 @@ export const appTheme = responsiveFontSizes(createTheme({
                     borderRadius: "8px",
                     fontSize: "14px",
                     fontWeight: "600",
-                    textTransform: "none",
-                    padding: "10px 20px"
+                    padding: "10px 20px",
+                    textTransform: "none"
                 }
             },
             variants: [

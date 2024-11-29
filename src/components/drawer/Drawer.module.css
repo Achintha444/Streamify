@@ -42,7 +42,7 @@
     padding-left: 20px !important;
     justify-content: initial !important;
     margin-left: 0px !important;
-    transition: margin-left 0.3s ease-in-out !important ;
+    transition: margin-left 0.3s ease-in-out !important;
 }
 
 .uiDrawerListItemButton:hover {
@@ -67,7 +67,7 @@
     font-weight: 500;
 }
 
-.uiDrawerListItemButton:hover .uiDrawerListItemIcon > * {
+.uiDrawerListItemButton:hover .uiDrawerListItemIcon>* {
     stroke-width: 1.5;
 }
 
@@ -99,12 +99,12 @@
     width: 100%;
 }
 
-.uiDrawerUserDetails:hover .uiDrawerUsername{
+.uiDrawerUserDetails:hover .uiDrawerUsername {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
 
-.uiDrawerUserDetails:hover .uiDrawerEmail{
+.uiDrawerUserDetails:hover .uiDrawerEmail {
     color: var(--color-primary) !important;
 }
 
@@ -113,7 +113,7 @@
         display: flex;
         justify-content: center;
     }
-    
+
     .uiDrawerListItemText {
         display: none;
     }
@@ -160,5 +160,24 @@
 @media screen and (max-width: 468px) {
     .uiDrawerCloseButton {
         display: inline-flex !important;
+    }
+
+    .uiDrawer {
+        height: 100vh !important;
+        width: 100% !important;
+    }
+
+    .uiDrawer>* {
+        width: 87% !important;
+    }
+
+    .drawerSlideIn {
+        transform: translateX(0);
+        transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) !important;
+    }
+
+    .drawerSlideOut {
+        transform: translateX(-100%);
+        transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) !important;
     }
 }
