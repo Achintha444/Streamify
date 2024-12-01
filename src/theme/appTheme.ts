@@ -1,4 +1,4 @@
-import { createTheme, CSSObject, responsiveFontSizes, Theme } from "@mui/material/styles";
+import { CSSObject, Theme, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { images } from "../assets/images";
 
 const Font = {
