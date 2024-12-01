@@ -2,7 +2,7 @@ import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../../components/layouts/layout";
 import { links } from "../../../utils/links";
 import "../styles/LoginPage.css";
 

@@ -1,11 +1,11 @@
 import { AuthProvider } from "@asgardeo/auth-react";
+import { ThemeProvider } from "@mui/material";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import { authConfig } from "./auth/authConfig.ts";
-import { appTheme } from "./theme/appTheme.ts";
 import "./styles/index.css";
-import { ThemeProvider } from "@mui/material";
+import { appTheme } from "./theme/appTheme.ts";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>

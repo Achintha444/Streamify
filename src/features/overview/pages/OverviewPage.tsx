@@ -1,5 +1,5 @@
-import UIDrawer from "../../../components/drawer/UIDrawer";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../../components/layouts/layout";
+import UIDrawer from "../../../components/uidrawer/uiDrawer";
 
 export default function OverviewPage() {
     return (

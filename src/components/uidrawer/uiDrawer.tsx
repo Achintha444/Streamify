@@ -10,7 +10,7 @@ import { styled } from "@mui/material/styles";
 import { Cancel01Icon, Home01Icon, Menu02Icon } from "hugeicons-react";
 import { useEffect, useState } from "react";
 import { UIDrawerVariant } from "./models/uidrawerVariant";
-import styles from "./UIDrawer.module.css";
+import styles from "./styles/UIDrawer.module.css";
 import { images } from "../../assets/images";
 import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../utils/constants/constants";
 
