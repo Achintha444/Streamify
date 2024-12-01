@@ -6,12 +6,12 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Get the changed files for the PR
-CHANGED_FILES=$(gh pr diff $1 --name-only | grep '\.js$\|\.jsx$\|\.ts$\|\.tsx$')
+# Get the added and modified files for the PR
+CHANGED_FILES=$(gh pr diff $1 --name-only --diff-filter=AM | grep '\.js$\|\.jsx$\|\.ts$\|\.tsx$')
 
 # If no changed files, exit successfully
 if [ -z "$CHANGED_FILES" ]; then
-  echo "No JavaScript/TypeScript files changed"
+  echo "No JavaScript/TypeScript files added or modified"
   exit 0
 fi
 
