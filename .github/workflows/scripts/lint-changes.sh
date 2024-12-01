@@ -13,9 +13,6 @@ MAX_FILE_THRESHOLD_FOR_LINTER=30
 command -v npm >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'npm'.  Aborting as not found."; exit 1; }
 command -v gh >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'gh' to call GitHub APIs.  Aborting as not found."; exit 1; }
 
-# Get the repository root directory
-REPO_ROOT=$(git rev-parse --show-toplevel)
-
 # Get changed files from the PR
 raw_changed_files=$(gh pr diff "$GITHUB_PR_NUMBER" --name-only)
 changed_files=()
@@ -30,8 +27,7 @@ done <<< "$raw_changed_files"
 for file in "${changed_files[@]}"; do
     for ext in "${ESLINT_SUPPORTED_EXT[@]}"; do
         if [[ $file == *.$ext ]]; then
-            # Use absolute path
-            supported_files+=("$REPO_ROOT/$file")
+            supported_files+=("../../$file")
             break
         fi
     done
@@ -66,7 +62,7 @@ do
     if [[ ${#chunk[@]} -gt 0 ]]; then
         echo -e "\n 🔥 Linting batch $((i/MAX_FILE_THRESHOLD_FOR_LINTER + 1))... \n"
         
-        # Run ESLint with absolute paths
+        # Run ESLint with new flat config approach
         npx eslint "${chunk[@]}"
         
         # Capture the exit status of ESLint
