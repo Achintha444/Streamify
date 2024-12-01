@@ -66,7 +66,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 🧩 Install Dependencies
-        run: npm ci  # Recommended for CI environments
+        run: |
+          rm -rf node_modules
+          rm -rf package-lock.json
+          npm cache clean --force
+          npm install
 
       - name: 👷 Build
         run: npm run build  # Assumes you have a build script in package.json
