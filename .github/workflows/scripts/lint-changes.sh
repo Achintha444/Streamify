@@ -27,7 +27,7 @@ done <<< "$raw_changed_files"
 for file in "${changed_files[@]}"; do
     for ext in "${ESLINT_SUPPORTED_EXT[@]}"; do
         if [[ $file == *.$ext ]]; then
-            supported_files+=("../../$file")
+            supported_files+=("$file")
             break
         fi
     done
@@ -52,6 +52,9 @@ echo -e "\n 🥬 Starting analyzing the changed files with ESLint.. \n"
 
 # Variable to track if any linting errors occur
 lint_errors=false
+
+# Move to source directory
+cd ../..
 
 # Lint files in batches
 for ((i=0; i < ${#supported_files[@]}; i+=MAX_FILE_THRESHOLD_FOR_LINTER))
