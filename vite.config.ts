@@ -1,14 +1,14 @@
 // vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': '/src',
-    },
-  },
-  // This ensures proper handling of static assets
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
+    // This ensures proper handling of static assets
+    assetsInclude: [ "**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.svg" ],
+    plugins: [ react() ],
+    resolve: {
+        alias: {
+            "@": "/src"
+        }
+    }
 });
