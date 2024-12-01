@@ -55,6 +55,7 @@ lint_errors=false
 
 # Move to source directory
 cd ../..
+cd src/components
 ls
 
 # Lint files in batches
