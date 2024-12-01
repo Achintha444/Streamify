@@ -55,6 +55,7 @@ lint_errors=false
 
 # Move to source directory
 cd ../..
+ls
 
 # Lint files in batches
 for ((i=0; i < ${#supported_files[@]}; i+=MAX_FILE_THRESHOLD_FOR_LINTER))
