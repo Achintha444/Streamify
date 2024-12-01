@@ -44,9 +44,8 @@ jobs:
         run: npm ci  # Recommended for CI environments
 
       - name: 🦄 Lint Changed Files
-        working-directory: .github/workflows
         run: |
-            bash ./scripts/lint-changes.sh ${{ github.event.pull_request.number }}
+            bash ./.github/workflows/scripts/lint-changes.sh ${{ github.event.pull_request.number }}
 
   build:
     name: 🚧 Build
