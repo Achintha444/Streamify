@@ -89,10 +89,10 @@ export const appTheme = responsiveFontSizes(createTheme({
             styleOverrides: {
                 docked: {
                     height: "100%",
-                    width: "255px"
+                    minWidth: "104px",
+                    width: "282px"
                 },
                 paper: {
-                    width: "255px",
                     border: `1px solid ${Colors.colorWhiteTernary}`,
                     borderRadius: "24px",
                     height: "94vh",
