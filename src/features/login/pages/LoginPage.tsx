@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
 import Layout from "../../../components/layouts/layout";
 import { links } from "../../../utils/links";
-import "../styles/LoginPage.css";
+import "../styles/loginPage.css";
 
 function LoginPage() {
 
@@ -12,7 +12,7 @@ function LoginPage() {
 
     return (
         <Layout>
-            <Grid className="side-image-holder" size={ { xs: 0, sm: 0, md: 5 } }>
+            <Grid className="side-image-holder" size={ { md: 5, sm: 0 } }>
                 <img src={ images.loginSide } />
                 <Stack
                     className="side-image-content"
