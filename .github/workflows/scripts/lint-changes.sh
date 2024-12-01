@@ -59,24 +59,16 @@ do
     chunk=( "${supported_files[@]:i:MAX_FILE_THRESHOLD_FOR_LINTER}" )
     
     # Prepare file list for linting
-    if [[ ${#chunk[@]} -gt 1 ]]; then
-        filter_pattern="{""$(IFS=","; echo "${chunk[*]}")""}";
-    elif [[ ${#chunk[@]} == 1 ]]; then
-        filter_pattern="${chunk[0]}";
-    else
-        continue
-    fi
-    
-    if [[ ${#supported_files[@]} -gt MAX_FILE_THRESHOLD_FOR_LINTER ]]; then
+    if [[ ${#chunk[@]} -gt 0 ]]; then
         echo -e "\n 🔥 Linting batch $((i/MAX_FILE_THRESHOLD_FOR_LINTER + 1))... \n"
-    fi
-    
-    # Run ESLint
-    npx eslint --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern --max-warnings=0 "$filter_pattern"
-    
-    # Capture the exit status of ESLint
-    if [ $? -ne 0 ]; then
-        lint_errors=true
+        
+        # Run ESLint with new flat config approach
+        npx eslint "${chunk[@]}"
+        
+        # Capture the exit status of ESLint
+        if [ $? -ne 0 ]; then
+            lint_errors=true
+        fi
     fi
 done
 
