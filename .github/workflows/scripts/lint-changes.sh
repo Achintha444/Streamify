@@ -6,8 +6,11 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Get the added and modified files for the PR
-CHANGED_FILES=$(gh pr diff $1 --name-only --diff-filter=AM | grep '\.js$\|\.jsx$\|\.ts$\|\.tsx$')
+# Fetch the base branch of the PR
+BASE_BRANCH=$(gh pr view $1 --json baseRefName -q .baseRefName)
+
+# Get added and modified files
+CHANGED_FILES=$(git diff --diff-filter=AM --name-only origin/$BASE_BRANCH HEAD | grep '\.js$\|\.jsx$\|\.ts$\|\.tsx$')
 
 # If no changed files, exit successfully
 if [ -z "$CHANGED_FILES" ]; then
