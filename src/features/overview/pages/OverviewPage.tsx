@@ -1,10 +1,10 @@
 import Layout from "../../../components/layouts/layout";
-import UIDrawer from "../../../components/uidrawer/uiDrawer";
+import { MainContentLayout } from "../../../components/layouts/mainContentLayout";
 
 export default function OverviewPage() {
     return (
         <Layout>
-            <UIDrawer />
+            <MainContentLayout content={<div>Overview</div>} title="Overview" subTitle="Overview"/>
         </Layout>
     );
 }

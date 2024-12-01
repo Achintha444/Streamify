@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { CSSObject, Theme, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { images } from "../assets/images";
 
@@ -37,11 +38,20 @@ const closedMixin = (theme: Theme): CSSObject => ({
 });
 
 export const appTheme = responsiveFontSizes(createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 468,
+            md: 768,
+            lg: 1200,
+            xl: 1536
+        }
+    },
     components: {
         MuiBackdrop: {
             styleOverrides: {
                 root: {
-                    backdropFilter: "blur(10px)",
+                    backdropFilter: "blur(4px)",
                     background: Colors.colorWhiteTernary,
                     opacity: "0.4 !important",
                     width: "100% !important"

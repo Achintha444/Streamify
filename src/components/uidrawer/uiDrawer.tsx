@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { UIDrawerVariant } from "./models/uidrawerVariant";
 import styles from "./styles/UIDrawer.module.css";
 import { images } from "../../assets/images";
-import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../utils/constants/constants";
+import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../utils/utility";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -49,13 +49,10 @@ export default function UIDrawer() {
     useEffect(() => {
         // Function to check and update drawer state based on screen width
         const checkDrawerState = () => {
-            const isMobileOrSmaller = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
-            const isTabletOrSmaller = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
-
-            if (isMobileOrSmaller) {
+            if (isScreenMobileOrSmall()) {
                 handleDrawerCloseMobile();
             } else {
-                setDrawerOpen(!isTabletOrSmaller);
+                setDrawerOpen(!isScreenTabletOrSmaller());
                 setDrawerVariant("permanent");
             }
         };
