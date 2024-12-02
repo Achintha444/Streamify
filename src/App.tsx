@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react";
-import OverviewPage from "./features/overview/pages/overviewPage";
+import OverviewPage from "./features/overview/pages/OverviewPage";
 
 function App() {
     const { state, signOut } = useAuthContext();
