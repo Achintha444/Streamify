@@ -75,7 +75,7 @@ do
         echo -e "\n 🔥 Linting batch $((i/MAX_FILE_THRESHOLD_FOR_LINTER + 1))... \n"
         
         # Run ESLint with new flat config approach
-        npx eslint "${chunk[@]}"
+        npx eslint --max-warnings 0 "${chunk[@]}"
         
         # Capture the exit status of ESLint
         if [ $? -ne 0 ]; then
