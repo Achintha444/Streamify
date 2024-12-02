@@ -13,8 +13,8 @@ MAX_FILE_THRESHOLD_FOR_LINTER=30
 command -v npm >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'npm'.  Aborting as not found."; exit 1; }
 command -v gh >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'gh' to call GitHub APIs.  Aborting as not found."; exit 1; }
 
-# Get changed files from the PR
-raw_changed_files=$(gh pr diff "$GITHUB_PR_NUMBER" --name-only)
+# Get changed files from the PR (filtering for added and modified files only)
+raw_changed_files=$(gh pr diff "$GITHUB_PR_NUMBER" --name-status | awk '$1 == "A" || $1 == "M" { print $2 }')
 changed_files=()
 supported_files=()
 
@@ -55,8 +55,6 @@ lint_errors=false
 
 # Move to source directory
 cd ../..
-cd src/components
-ls
 
 # Lint files in batches
 for ((i=0; i < ${#supported_files[@]}; i+=MAX_FILE_THRESHOLD_FOR_LINTER))
