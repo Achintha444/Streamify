@@ -126,7 +126,8 @@ export const appTheme = responsiveFontSizes(createTheme({
         MuiIconButton: {
             styleOverrides: {
                 root: {
-                    color: Colors.colorTextPrimary
+                    color: Colors.colorPrimary,
+                    backgroundColor: Colors.colorWhiteSecondary
                 }
             }
         },
