@@ -1,5 +1,16 @@
 # Streamify: Information Dashboard
 
+<div align="center">
+  <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/pr-builder.yml"><img src="https://github.com/asgardeo/mobile-ui-sdks/actions/workflows/pr-builder.yml/badge.svg" alt="👷 PR Builder"></a>
+  
+  <a href="https://achintha-isuru.vercel.app/"><img src="https://img.shields.io/badge/view_my-portfolio-violet" alt="portfolio"></a>
+  <a href="https://www.linkedin.com/in/achintha-isuru/"><img src=" https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white" alt="linkedin"></a>
+  <a href="https://medium.com/@achinthaisuru444"><img src="https://img.shields.io/badge/Medium-%23000000.svg?logo=medium&logoColor=white" alt="medium"></a>
+  <a href="https://github.com/Achintha444"><img src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white" alt="github"></a>
+<a href="https://www.youtube.com/@achinthaisuru8047"><img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white" alt="youtube"></a>
+  <a href="https://stackoverflow.com/users/10601286/achintha-isuru"><img src="https://img.shields.io/badge/Stackoverflow-orange" alt="Stackoverflow"></a>
+</div>
+
 This project was started to learn about designing and development of responsive information dashboards. The dashboard will be built using React.js and Material-UI. The dashboard is used to visualize the data from the server and provide a user-friendly interface for the users to interact with the data. This will be a single page application, with the following features:
 
 1. User authentication
