@@ -62,7 +62,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                 >
                     <Grid direction="column" container size="grow">
                         <Grid direction="row" container size="grow">
-                            <Grid size="auto" sx={ { background: "red" } }>
+                            <Grid size="auto">
                                 <UIDrawer />
                             </Grid>
                             <Grid size="grow" sx={ { border: "1px solid red" } }>
