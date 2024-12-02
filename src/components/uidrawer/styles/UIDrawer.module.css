@@ -1,3 +1,12 @@
+.uiDrawerOpenButton {
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.uiDrawerCloseButton {
+    display: none !important;
+}
+
 .uiDrawerLogoContainer {
     padding: 32px 20px !important;
     padding-bottom: 18px !important;
@@ -14,7 +23,7 @@
 }
 
 .uiDrawerListItem {
-    display: block;
+    min-width: 240px;
 }
 
 .uiDrawerListItemIcon {
@@ -33,7 +42,7 @@
     padding-left: 20px !important;
     justify-content: initial !important;
     margin-left: 0px !important;
-    transition: margin-left 0.3s ease-in-out !important ;
+    transition: margin-left 0.3s ease-in-out !important;
 }
 
 .uiDrawerListItemButton:hover {
@@ -58,7 +67,7 @@
     font-weight: 500;
 }
 
-.uiDrawerListItemButton:hover .uiDrawerListItemIcon > * {
+.uiDrawerListItemButton:hover .uiDrawerListItemIcon>* {
     stroke-width: 1.5;
 }
 
@@ -90,21 +99,25 @@
     width: 100%;
 }
 
-.uiDrawerUserDetails:hover .uiDrawerUsername{
+.uiDrawerUserDetails:hover .uiDrawerUsername {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
 
-.uiDrawerUserDetails:hover .uiDrawerEmail{
+.uiDrawerUserDetails:hover .uiDrawerEmail {
     color: var(--color-primary) !important;
 }
 
 @media only screen and (max-width: 768px) and (min-width: 468px) {
+    .uiDrawerListItem {
+        min-width: 0 !important;
+    }
+
     .uiDrawerLogoContainer {
         display: flex;
         justify-content: center;
     }
-    
+
     .uiDrawerListItemText {
         display: none;
     }
@@ -145,5 +158,21 @@
 
     .uiDrawerUserDetails:hover {
         margin: 12px 2px !important;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .uiDrawerCloseButton {
+        display: inline-flex !important;
+    }
+
+    .uiDrawer {
+        height: 100vh !important;
+        width: 100% !important;
+        backdrop-filter: blur(4px) !important;
+    }
+
+    .uiDrawer>* {
+        width: 87% !important;
     }
 }

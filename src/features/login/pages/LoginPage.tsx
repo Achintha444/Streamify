@@ -2,9 +2,9 @@ import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../../components/layouts/layout";
 import { links } from "../../../utils/links";
-import "../styles/LoginPage.css";
+import "../styles/loginPage.css";
 
 function LoginPage() {
 
@@ -12,7 +12,7 @@ function LoginPage() {
 
     return (
         <Layout>
-            <Grid className="side-image-holder" size={ { xs: 0, sm: 0, md: 5 } }>
+            <Grid className="side-image-holder" size={ { md: 5, sm: 0 } }>
                 <img src={ images.loginSide } />
                 <Stack
                     className="side-image-content"
@@ -31,7 +31,7 @@ function LoginPage() {
                     </div>
                 </Stack>
             </Grid>
-            <Grid className="side-image-holder-sm" size={ { xs: 4, sm: 4, md: 0 } }>
+            <Grid className="side-image-holder-sm" size={ {  md: 0, sm: 4, xs: 4 } }>
                 <img src={ images.loginSideSm } />
                 <Stack
                     className="side-image-content-sm"
@@ -45,7 +45,7 @@ function LoginPage() {
                     </Stack>
                 </Stack>
             </Grid>
-            <Grid className="login-content-holder" size={ { xs: 4, sm: 4, md: 7 } }>
+            <Grid className="login-content-holder" size={ {  md: 7, sm: 4, xs: 4 } }>
                 <Stack className="login-content">
                     <Stack className="login-content-header-form" spacing={ 8 }>
                         <Stack className="login-content-header">
@@ -69,14 +69,14 @@ function LoginPage() {
                             <Typography variant="subtitle2" className="login-content-subtitle">
 								If you do not have an account, please reach out to your system administrator for access.
                                 They will provide you with the necessary credentials to log in and access the dashboard.
-                                For any further assistance or troubleshooting, feel free to contact support at 
+                                For any further assistance or troubleshooting, feel free to contact support at
                                 <a href={ links.streamifyPortfolio } target="_blank">admin@streamify.com</a>.
                             </Typography>
                         </Stack>
                     </Stack>
                     <Typography variant="caption" className="login-content-terms">
-						By sign in you are agreeing to our 
-                        <a href={ links.streamifyPortfolio } target="_blank">privacy policy</a> 
+						By sign in you are agreeing to our
+                        <a href={ links.streamifyPortfolio } target="_blank">privacy policy</a>
                         and our <a href={ links.streamifyPortfolio } target="_blank">terms and conditions</a>.
                     </Typography>
                 </Stack>

@@ -1,4 +1,5 @@
-import { createTheme, CSSObject, responsiveFontSizes, Theme } from "@mui/material/styles";
+/* eslint-disable sort-keys */
+import { CSSObject, Theme, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { images } from "../assets/images";
 
 const Font = {
@@ -12,7 +13,8 @@ const Colors = {
     colorTextSecondary: "#6F7A88",
     colorWhitePrimary: "#FDFDFF",
     colorWhiteSecondary: "#F6F8FF",
-    colorWhiteTernary: "#C2D1FF"
+    colorWhiteTernary: "#C2D1FF",
+    colorWhiteTernaryBackdrop: ""
 };
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -36,7 +38,26 @@ const closedMixin = (theme: Theme): CSSObject => ({
 });
 
 export const appTheme = responsiveFontSizes(createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 468,
+            md: 768,
+            lg: 1200,
+            xl: 1536
+        }
+    },
     components: {
+        MuiBackdrop: {
+            styleOverrides: {
+                root: {
+                    backdropFilter: "blur(4px)",
+                    background: Colors.colorWhiteTernary,
+                    opacity: "0.4 !important",
+                    width: "100% !important"
+                }
+            }
+        },
         MuiButton: {
             defaultProps: {
                 autoCapitalize: "none",
@@ -48,8 +69,8 @@ export const appTheme = responsiveFontSizes(createTheme({
                     borderRadius: "8px",
                     fontSize: "14px",
                     fontWeight: "600",
-                    textTransform: "none",
-                    padding: "10px 20px"
+                    padding: "10px 20px",
+                    textTransform: "none"
                 }
             },
             variants: [
@@ -68,10 +89,10 @@ export const appTheme = responsiveFontSizes(createTheme({
             styleOverrides: {
                 docked: {
                     height: "100%",
-                    width: "255px"
+                    minWidth: "104px",
+                    width: "282px"
                 },
                 paper: {
-                    width: "255px",
                     border: `1px solid ${Colors.colorWhiteTernary}`,
                     borderRadius: "24px",
                     height: "94vh",
