@@ -4,7 +4,7 @@
   <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/pr-builder.yml"><img src="https://github.com/asgardeo/mobile-ui-sdks/actions/workflows/pr-builder.yml/badge.svg" alt="👷 PR Builder"></a>
   
   <a href="https://achintha-isuru.vercel.app/"><img src="https://img.shields.io/badge/view_my-portfolio-violet" alt="portfolio"></a>
-  <a href="https://www.linkedin.com/in/achintha-isuru/"><img src=" https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white" alt="linkedin"></a>
+  <a href="https://www.linkedin.com/in/achintha-isuru/"><img src="https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white" alt="linkedin"></a>
   <a href="https://medium.com/@achinthaisuru444"><img src="https://img.shields.io/badge/Medium-%23000000.svg?logo=medium&logoColor=white" alt="medium"></a>
   <a href="https://github.com/Achintha444"><img src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white" alt="github"></a>
 <a href="https://www.youtube.com/@achinthaisuru8047"><img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white" alt="youtube"></a>
