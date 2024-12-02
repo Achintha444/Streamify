@@ -13,8 +13,8 @@ MAX_FILE_THRESHOLD_FOR_LINTER=30
 command -v npm >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'npm'.  Aborting as not found."; exit 1; }
 command -v gh >/dev/null 2>&1 || { echo >&2 "Error: $0 script requires 'gh' to call GitHub APIs.  Aborting as not found."; exit 1; }
 
-# Get changed files from the PR (filtering for added and modified files only)
-raw_changed_files=$(gh pr diff "$GITHUB_PR_NUMBER" --name-status | awk '$1 == "A" || $1 == "M" { print $2 }')
+# Get changed files from the PR
+raw_changed_files=$(gh pr diff "$GITHUB_PR_NUMBER" --name-only)
 changed_files=()
 supported_files=()
 
@@ -23,8 +23,17 @@ while read -r file; do
    changed_files+=("$file")
 done <<< "$raw_changed_files"
 
-# Filter files with supported extensions
+# Filter files based on Git's diff status
+added_or_modified_files=()
 for file in "${changed_files[@]}"; do
+    # Check if the file is added or modified
+    if git diff --name-status origin/main...HEAD | grep -E "^(A|M)\s+$file" >/dev/null; then
+        added_or_modified_files+=("$file")
+    fi
+done
+
+# Further filter files by supported extensions
+for file in "${added_or_modified_files[@]}"; do
     for ext in "${ESLINT_SUPPORTED_EXT[@]}"; do
         if [[ $file == *.$ext ]]; then
             supported_files+=("$file")
