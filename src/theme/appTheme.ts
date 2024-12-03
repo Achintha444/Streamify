@@ -99,6 +99,7 @@ export const appTheme = responsiveFontSizes(createTheme({
                     margin: "24px",
                     flexShrink: 0,
                     background: `url(${images.drawer})`,
+                    backgroundSize: "cover",
                     boxSizing: "border-box"
                 },
                 root: ({ theme, ownerState }) => {
@@ -127,7 +128,9 @@ export const appTheme = responsiveFontSizes(createTheme({
             styleOverrides: {
                 root: {
                     color: Colors.colorPrimary,
-                    backgroundColor: Colors.colorWhiteSecondary
+                    backgroundColor: Colors.colorWhiteSecondary,
+                    border: `1px solid ${Colors.colorWhiteTernary}`,
+                    borderRadius: "8px"
                 }
             }
         },
