@@ -1,6 +1,9 @@
 .uiDrawerOpenButton {
     width: fit-content !important;
     height: fit-content !important;
+    margin-top: 16px !important;
+    margin-right: 16px !important;
+    margin-bottom: 16px !important;
 }
 
 .uiDrawerCloseButton {
