@@ -49,9 +49,8 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                         direction="column"
                         container
                         size="grow"
-                        sx={ { border: "1px solid red" } }
                     >
-                        <Grid size="auto" sx={ { border: "1px solid red" } }>
+                        <Grid size="auto">
                             <UiMainContentTitle title={ title } subTitle={ subTitle } />
                         </Grid>
                         <Grid size="grow" sx={ { border: "1px solid red" } }>
@@ -73,7 +72,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                                 <UIDrawer />
                             </Grid>
                             <Grid size="grow" sx={ { border: "1px solid red" } }>
-                                <div>12</div>
+                                <UiMainContentTitle title={ title } subTitle={ subTitle } />
                             </Grid>
                         </Grid>
                         <Grid size="grow" sx={ { border: "1px solid red" } }>
