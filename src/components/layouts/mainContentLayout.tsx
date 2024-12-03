@@ -1,8 +1,9 @@
 import Grid from "@mui/material/Grid2/Grid2";
 import { FunctionComponent, ReactElement } from "react";
-import styles from "./styles/Layouts.module.css";
+import styles from "./styles/MainLayout.module.css";
 import { isScreenMobileOrSmall } from "../../utils/utility";
 import UIDrawer from "../uidrawer/uiDrawer";
+import { UiMainContentTitle } from "../uiMainContentTitle/uiMainContentTitle";
 
 interface MainContentLayoutProps {
     /**
@@ -43,9 +44,15 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                     <Grid size="auto">
                         <UIDrawer />
                     </Grid>
-                    <Grid direction="column" container size="grow" sx={ { border: "1px solid red" } }>
+                    <Grid
+                        className={ styles["contentContainer"] }
+                        direction="column"
+                        container
+                        size="grow"
+                        sx={ { border: "1px solid red" } }
+                    >
                         <Grid size="auto" sx={ { border: "1px solid red" } }>
-                            <div>{ title } { subTitle }</div>
+                            <UiMainContentTitle title={ title } subTitle={ subTitle } />
                         </Grid>
                         <Grid size="grow" sx={ { border: "1px solid red" } }>
                             { content }

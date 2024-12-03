@@ -173,7 +173,8 @@ export const appTheme = responsiveFontSizes(createTheme({
         subtitle1: {
             fontFamily: Font.defaultFontFamily,
             fontWeight: "500",
-            fontSize: "14px"
+            fontSize: "14px",
+            color: Colors.colorTextSecondary
         },
         subtitle2: {
             fontFamily: Font.defaultFontFamily,
@@ -183,6 +184,11 @@ export const appTheme = responsiveFontSizes(createTheme({
         },
         h4: {
             fontFamily: Font.secondaryFontFamily
+        },
+        h5: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorPrimary,
+            fontWeight: "bold"
         },
         caption: {
             fontFamily: Font.defaultFontFamily,
