@@ -14,6 +14,8 @@ export const getContentRoutes = (): ContentRoute[] => {
             path: "/overview",
             id: "overview",
             drawerLabel: "Overview",
+            pageTitle: "Overview",
+            pageSubTitle: "Key Metrics, and Insights at a Glance",
             drawerIcon: <SearchList01Icon />,
             component: <OverviewPage />
         },
@@ -21,6 +23,8 @@ export const getContentRoutes = (): ContentRoute[] => {
             path: "/users",
             id: "users",
             drawerLabel: "Users",
+            pageTitle: "Users",
+            pageSubTitle: "Key Metrics of Users Growth and Engagement",
             drawerIcon: <UserGroupIcon />,
             component: <UsersPage />
         },
@@ -28,6 +32,8 @@ export const getContentRoutes = (): ContentRoute[] => {
             path: "/artists",
             id: "artists",
             drawerLabel: "Artists",
+            pageTitle: "Artists",
+            pageSubTitle: "Key Metrics of Insights into Artists Performances",
             drawerIcon: <Mic01Icon />,
             component: <ArtistsPage />
         },
@@ -35,6 +41,8 @@ export const getContentRoutes = (): ContentRoute[] => {
             path: "/songs",
             id: "songs",
             drawerLabel: "Songs",
+            pageTitle: "Songs",
+            pageSubTitle: "Key Metrics of Insights into Songs Performances",
             drawerIcon: <MusicNote03Icon />,
             component: <SongsPage />
         },
@@ -42,6 +50,8 @@ export const getContentRoutes = (): ContentRoute[] => {
             path: "/revenue",
             id: "revenue",
             drawerLabel: "Revenue",
+            pageTitle: "Revenue",
+            pageSubTitle: "Key Metrics of Earnings",
             drawerIcon: <CoinsDollarIcon />,
             component: <RevenuePage />
         }

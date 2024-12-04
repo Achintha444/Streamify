@@ -21,6 +21,14 @@ interface ContentRoute {
      */
     drawerLabel: string;
     /**
+     * Title of the route in the header
+     */
+    pageTitle: string;
+    /**
+     * Subtitle of the route in the header
+     */
+    pageSubTitle: string;
+    /**
      * Icon of the route in the drawer
      */
     drawerIcon: ReactNode;

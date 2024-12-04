@@ -1,24 +1,15 @@
-import { useAuthContext } from "@asgardeo/auth-react";
-import OverviewPage from "./features/overview/pages/OverviewPage";
+import { AuthenticatedComponent } from "@asgardeo/auth-react";
+import Layout from "./layouts/layout";
+import { MainContentLayout } from "./layouts/mainContentLayout";
 
 function App() {
-    const { state, signOut } = useAuthContext();
-
-
-    if (state.isAuthenticated) {
-        // TODO: Implement the main app page
-        return (
-            <div>
-				Login Success
-                {
-                    <p>Welcome { state.username }</p>
-                }
-                <button onClick={ () => signOut() }>Sign Out</button>
-            </div>
-        );
-    }
-
-    return <OverviewPage />;
+    return (
+        <AuthenticatedComponent fallback={ <div>as</div> }>
+            <Layout>
+                <MainContentLayout content={ <div> asd </div> } title=" " subTitle=" " />
+            </Layout>
+        </AuthenticatedComponent>
+    );
 }
 
 export default App;
