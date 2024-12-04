@@ -1,5 +1,5 @@
-import Layout from "../../../components/layouts/layout";
-import { MainContentLayout } from "../../../components/layouts/mainContentLayout";
+import Layout from "../../../layouts/layout";
+import { MainContentLayout } from "../../../layouts/mainContentLayout";
 
 export default function OverviewPage() {
     return (

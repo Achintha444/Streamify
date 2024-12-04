@@ -20,6 +20,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     ...theme.mixins.toolbar
 }));
 
+// TODO: list of icons and titles should be passed in as props, to decouple it.
 export default function UIDrawer() {
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<UIDrawerVariant>("permanent");

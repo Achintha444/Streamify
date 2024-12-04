@@ -2,9 +2,9 @@ import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
-import Layout from "../../../components/layouts/layout";
+import Layout from "../../../layouts/layout";
 import { links } from "../../../utils/links";
-import "../styles/loginPage.css";
+import "../styles/login-page.css";
 
 function LoginPage() {
 

@@ -1,9 +1,9 @@
 import Grid from "@mui/material/Grid2/Grid2";
 import { FunctionComponent, ReactElement } from "react";
 import styles from "./styles/MainLayout.module.css";
-import { isScreenMobileOrSmall } from "../../utils/utility";
-import UIDrawer from "../uidrawer/uiDrawer";
-import { UiMainContentTitle } from "../uiMainContentTitle/uiMainContentTitle";
+import UIDrawer from "../components/uidrawer/uiDrawer";
+import { UiMainContentTitle } from "../components/uiMainContentTitle/uiMainContentTitle";
+import { isScreenMobileOrSmall } from "../utils/utility";
 
 interface MainContentLayoutProps {
     /**
