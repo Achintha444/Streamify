@@ -3,8 +3,8 @@
 import { RouteObject, createBrowserRouter } from "react-router";
 import { getContentRoutes } from "./contentRoutes";
 import ContentRoute from "./models/contentRoute";
-import App from "../App";
-import LoginPage from "../auth/ui/pages/loginPage";
+import App from "../pages/app/pages/App";
+import LoginPage from "../pages/login/pages/loginPage";
 
 export const getRouter = createBrowserRouter([
     {

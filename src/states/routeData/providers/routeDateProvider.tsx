@@ -1,5 +1,7 @@
 import { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { useLocation } from "react-router";
+import { getContentRoutes } from "../../../routes/contentRoutes";
+import ContentRoute from "../../../routes/models/contentRoute";
 import RouteDataContext from "../contexts/routeDataContext";
 
 /**
@@ -20,13 +22,16 @@ const RouteDataProvider: FunctionComponent<RouteDataProviderProps> = (
 
     const { pathname } = useLocation();
 
-    const checkIfActiveRoute = (route: string): boolean => {
-        return pathname === route;
-    };
+    const checkIfActiveRoute = (route: string): boolean =>  pathname === route;
+
+    const getActiveContentRoute = (): ContentRoute | undefined => getContentRoutes().find(
+        (contentRoute) => contentRoute.path === pathname
+    );
 
     return (
         <RouteDataContext.Provider
             value={ {
+                activeContentRoute: getActiveContentRoute(),
                 activeRoute: pathname,
                 checkIfActiveRoute: checkIfActiveRoute
             } }

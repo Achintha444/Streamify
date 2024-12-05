@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid2/Grid2";
-import { FunctionComponent, ReactElement } from "react";
+import { FunctionComponent, ReactElement, ReactNode } from "react";
 import styles from "./styles/MainLayout.module.css";
 import { UiMainContentTitle } from "../components/uiMainContentTitle/uiMainContentTitle";
 import { isScreenMobileOrSmall } from "../utils/utility";
@@ -16,11 +16,11 @@ interface MainContentLayoutProps {
     /**
      * Drawer component of the layout
      */
-    drawerComponent: ReactElement;
+    drawerComponent: ReactNode;
     /**
      * Content of the layout
      */
-    content: ReactElement;
+    content: ReactNode;
 }
 
 /**
