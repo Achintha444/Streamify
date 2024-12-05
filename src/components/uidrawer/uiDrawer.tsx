@@ -124,6 +124,7 @@ export default function UIDrawer() {
                                                 root: styles["uiDrawerListItemButton"],
                                                 selected: styles["uiDrawerListItemButtonSelected"]
                                             } }
+                                            onClick={ isScreenMobileOrSmall() ? handleDrawerCloseMobile : undefined }
                                         >
                                             <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
                                                 { contentRoute.drawerIcon }
