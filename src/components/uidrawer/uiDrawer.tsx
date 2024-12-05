@@ -15,6 +15,7 @@ import styles from "./styles/UIDrawer.module.css";
 import { images } from "../../assets/images";
 import { getContentRoutes } from "../../routes/contentRoutes";
 import ContentRoute from "../../routes/models/contentRoute";
+import useRouteData from "../../states/routeData/hooks/useRouteData";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../utils/utility";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -25,6 +26,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 // TODO: list of icons and titles should be passed in as props, to decouple it.
 export default function UIDrawer() {
+    const { checkIfActiveRoute } = useRouteData();
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<UIDrawerVariant>("permanent");
 
@@ -116,7 +118,13 @@ export default function UIDrawer() {
                                         className={ styles["uiDrawerListItem"] }
                                         disablePadding
                                     >
-                                        <ListItemButton className={ styles["uiDrawerListItemButton"] }  >
+                                        <ListItemButton
+                                            selected={ checkIfActiveRoute(contentRoute.path) }
+                                            classes={ {
+                                                root: styles["uiDrawerListItemButton"],
+                                                selected: styles["uiDrawerListItemButtonSelected"]
+                                            } }
+                                        >
                                             <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
                                                 { contentRoute.drawerIcon }
                                             </ListItemIcon>
