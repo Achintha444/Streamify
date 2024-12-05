@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import UIDrawer from "../../../components/uidrawer/uiDrawer";
+import { UiLoader } from "../../../components/uiLoader/uiLoader";
 import { MainContentLayout } from "../../../layouts/mainContentLayout";
 import useRouteData from "../../../states/routeData/hooks/useRouteData";
 
@@ -24,7 +25,7 @@ function AppLayout() {
                     subTitle={ activeContentRoute!.pageSubTitle }
                 />
             )
-            : <div>as</div> // TODO: This need to be replaced with the loading component
+            : <UiLoader />
     );
 }
 

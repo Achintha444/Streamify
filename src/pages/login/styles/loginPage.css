@@ -84,12 +84,12 @@
 }
 
 .side-image-content-top-text {
-    color: var(--background-color);
+    color: var(--color-white-primary)  !important;
     padding-left: var(--padding-side-image-content);
 }
 
 .side-image-content-top-text-sm {
-    color: var(--background-color);
+    color: var(--color-white-primary);
     text-align: center;
     margin-left: -12px !important;
 }
@@ -106,7 +106,7 @@
     padding-right: var(--padding-side-image-content);
     font-family: "Open Sans" !important;
     font-weight: 400 !important;
-    color: var(--background-color);
+    color: var(--color-white-primary);
 }
 
 .login-content-holder {
@@ -151,7 +151,7 @@
 }
 
 .login-content-title {
-    color: var(--primary-color);
+    color: var(--color-primary);
 }
 
 .login-content-main-subtitle {
