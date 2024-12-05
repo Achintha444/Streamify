@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
 import Layout from "../../../layouts/layout";
 import { links } from "../../../utils/links";
-import "../styles/login-page.css";
+import "../styles/loginPage.css";
 
 function LoginPage() {
 

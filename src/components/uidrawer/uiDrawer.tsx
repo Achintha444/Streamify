@@ -7,11 +7,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
-import { Cancel01Icon, Home01Icon, Menu02Icon } from "hugeicons-react";
+import { Cancel01Icon, Menu02Icon } from "hugeicons-react";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router";
 import { UIDrawerVariant } from "./models/uidrawerVariant";
 import styles from "./styles/UIDrawer.module.css";
 import { images } from "../../assets/images";
+import { getContentRoutes } from "../../routes/contentRoutes";
+import ContentRoute from "../../routes/models/contentRoute";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../utils/utility";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -107,24 +110,27 @@ export default function UIDrawer() {
                     </DrawerHeader>
                     <Stack className={ styles["uiDrawerStack"] } justifyContent="space-between">
                         <List className={ styles["uiDrawerList"] }>
-                            { [ "Overview", "Users", "Artists", "Songs", "Revenue" ].map((text) => (
-                                <ListItem
-                                    className={ styles["uiDrawerListItem"] }
-                                    key={ text }
-                                    disablePadding
-                                >
-                                    <ListItemButton className={ styles["uiDrawerListItemButton"] } >
-                                        <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
-                                            <Home01Icon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            className={ styles["uiDrawerListItemText"] }
-                                            primary={
-                                                <Typography variant="body2">{ text }</Typography>
-                                            }
-                                        />
-                                    </ListItemButton>
-                                </ListItem>
+                            { getContentRoutes().map((contentRoute: ContentRoute) => (
+                                <NavLink key={ contentRoute.id } to={ contentRoute.path }>
+                                    <ListItem
+                                        className={ styles["uiDrawerListItem"] }
+                                        disablePadding
+                                    >
+                                        <ListItemButton className={ styles["uiDrawerListItemButton"] }  >
+                                            <ListItemIcon className={ styles["uiDrawerListItemIcon"] } >
+                                                { contentRoute.drawerIcon }
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                className={ styles["uiDrawerListItemText"] }
+                                                primary={ (
+                                                    <Typography variant="body2">
+                                                        { contentRoute.drawerLabel }
+                                                    </Typography>
+                                                ) }
+                                            />
+                                        </ListItemButton>
+                                    </ListItem>
+                                </NavLink>
                             )) }
                         </List>
                         <Button className={ styles["uiDrawerUserDetails"] } variant="text">

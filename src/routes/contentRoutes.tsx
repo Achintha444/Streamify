@@ -11,7 +11,7 @@ import UsersPage from "../features/users/pages/usersPage";
 export const getContentRoutes = (): ContentRoute[] => {
     return [
         {
-            path: "/overview",
+            path: "/app/overview",
             id: "overview",
             drawerLabel: "Overview",
             pageTitle: "Overview",
@@ -20,7 +20,7 @@ export const getContentRoutes = (): ContentRoute[] => {
             component: <OverviewPage />
         },
         {
-            path: "/users",
+            path: "/app/users",
             id: "users",
             drawerLabel: "Users",
             pageTitle: "Users",
@@ -29,7 +29,7 @@ export const getContentRoutes = (): ContentRoute[] => {
             component: <UsersPage />
         },
         {
-            path: "/artists",
+            path: "/app/artists",
             id: "artists",
             drawerLabel: "Artists",
             pageTitle: "Artists",
@@ -38,7 +38,7 @@ export const getContentRoutes = (): ContentRoute[] => {
             component: <ArtistsPage />
         },
         {
-            path: "/songs",
+            path: "/app/songs",
             id: "songs",
             drawerLabel: "Songs",
             pageTitle: "Songs",
@@ -47,7 +47,7 @@ export const getContentRoutes = (): ContentRoute[] => {
             component: <SongsPage />
         },
         {
-            path: "/revenue",
+            path: "/app/revenue",
             id: "revenue",
             drawerLabel: "Revenue",
             pageTitle: "Revenue",

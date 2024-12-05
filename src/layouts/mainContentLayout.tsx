@@ -1,7 +1,6 @@
 import Grid from "@mui/material/Grid2/Grid2";
 import { FunctionComponent, ReactElement } from "react";
 import styles from "./styles/MainLayout.module.css";
-import UIDrawer from "../components/uidrawer/uiDrawer";
 import { UiMainContentTitle } from "../components/uiMainContentTitle/uiMainContentTitle";
 import { isScreenMobileOrSmall } from "../utils/utility";
 
@@ -15,9 +14,13 @@ interface MainContentLayoutProps {
      */
     subTitle: string;
     /**
+     * Drawer component of the layout
+     */
+    drawerComponent: ReactElement;
+    /**
      * Content of the layout
      */
-    content: ReactElement
+    content: ReactElement;
 }
 
 /**
@@ -28,6 +31,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
     const {
         title,
         subTitle,
+        drawerComponent,
         content
     } = props;
 
@@ -42,7 +46,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                     className={ `${styles.mainContentLayout} ${styles.mainContentLayoutLarge}` }
                 >
                     <Grid size="auto">
-                        <UIDrawer />
+                        { drawerComponent }
                     </Grid>
                     <Grid
                         className={ styles["contentContainer"] }
@@ -69,7 +73,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                     <Grid direction="column" container size="grow">
                         <Grid direction="row" container size="grow">
                             <Grid size="auto">
-                                <UIDrawer />
+                                { drawerComponent }
                             </Grid>
                             <Grid size="grow" sx={ { border: "1px solid red" } }>
                                 <UiMainContentTitle title={ title } subTitle={ subTitle } />
