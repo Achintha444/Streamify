@@ -62,15 +62,6 @@
         display: none !important;
     }
 }
-/* 
-@media (min-width: 899px) {
-    .side-image-holder-sm {
-        display: none !important;
-    }
-    .side-image-content-sm {
-        display: none !important;
-    }
-} */
 
 .side-image-content-top img {
     width: 196px;
