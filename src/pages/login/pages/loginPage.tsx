@@ -2,7 +2,6 @@ import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { images } from "../../../assets/images";
-import Layout from "../../../layouts/layout";
 import { links } from "../../../utils/links";
 import "../styles/loginPage.css";
 
@@ -11,7 +10,7 @@ function LoginPage() {
     const { signIn } = useAuthContext();
 
     return (
-        <Layout>
+        <>
             <Grid className="side-image-holder" size={ { md: 5, sm: 0 } }>
                 <img src={ images.loginSide } />
                 <Stack
@@ -81,7 +80,7 @@ function LoginPage() {
                     </Typography>
                 </Stack>
             </Grid>
-        </Layout>
+        </>
     );
 };
 

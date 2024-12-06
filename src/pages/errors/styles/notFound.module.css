@@ -1,0 +1,51 @@
+.notFoundContainer {
+    width: 100%;
+}
+
+.notFoundImageInnerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFoundImageContainer {
+    justify-content: flex-end;
+}
+
+.notFoundImageContainer > img {
+    width: 32vw;
+    min-width: 324px;
+    max-width: 420px;
+}
+
+.notFoundImageTextStack {
+    max-width: 32vw;
+}
+
+.notFoundMainText {
+    color: var(--color-primary);
+}
+
+.notFoundTextList {
+    margin-top: 4px;
+    padding-left: 32px;
+}
+
+.notFoundTextList > li::marker {
+    color: var(--color-text-secondary);
+}
+
+@media only screen and (max-width: 768px) {
+    .notFoundImageContainer {
+        justify-content: center;
+    }
+
+    .notFoundTextContainer {
+        align-items: flex-start;
+    }
+    
+    .notFoundImageTextStack {
+        align-items: flex-start;
+        max-width: 64vw;
+    }
+}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import UIDrawer from "../../../components/uidrawer/uiDrawer";
 import { UiLoader } from "../../../components/uiLoader/uiLoader";
 import { MainContentLayout } from "../../../layouts/mainContentLayout";
+import { getContentRoutes } from "../../../routes/contentRoutes";
 import useRouteData from "../../../states/routeData/hooks/useRouteData";
 
 function AppLayout() {
@@ -11,7 +12,7 @@ function AppLayout() {
 
     useEffect(() => {
         if (checkIfActiveRoute("/app") || checkIfActiveRoute("/app/")) {
-            navigate("/app/overview");
+            navigate(getContentRoutes()[0].path);
         }
     }, [ checkIfActiveRoute, navigate ]);
 
