@@ -14,25 +14,19 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const [ isAuthenticationLoading, setIsAuthenticationLoading ] = useState<boolean>(true);
-    const [ isUserAuthenticated, setIsUserAuthenticated ] = useState<boolean>(false);
 
     useEffect(() => {
         isAuthenticated().then((response) => {
             if (response === true) {
-                setIsUserAuthenticated(true);
                 navigate("/app");
-            } else {
-                setIsUserAuthenticated(false);
             }
-        }).catch(() => {
-            setIsUserAuthenticated(false);
         }).finally(() => {
             setIsAuthenticationLoading(false);
         });
     }, []);
 
     return (
-        !isAuthenticationLoading && isUserAuthenticated
+        !isAuthenticationLoading
             ? (
                 <>
                     <Grid className="side-image-holder" size={ { md: 5, sm: 0 } }>
