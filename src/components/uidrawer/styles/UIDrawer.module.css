@@ -113,6 +113,13 @@
     width: 100%;
 }
 
+.uiDrawerEmail, .uiDrawerUsername {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .uiDrawerUserDetails:hover .uiDrawerUsername {
     color: var(--color-primary) !important;
     font-weight: 500;

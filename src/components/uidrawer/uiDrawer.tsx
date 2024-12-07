@@ -8,15 +8,36 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import { Cancel01Icon, Menu02Icon } from "hugeicons-react";
-import { useEffect, useState } from "react";
+import { FunctionComponent, ReactElement, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { UIDrawerVariant } from "./models/uidrawerVariant";
 import styles from "./styles/UIDrawer.module.css";
 import { images } from "../../assets/images";
 import { getContentRoutes } from "../../routes/contentRoutes";
 import ContentRoute from "../../routes/models/contentRoute";
-import useRouteData from "../../states/routeData/hooks/useRouteData";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../utils/utility";
+
+interface UIDrawerProps {
+    /**
+     * Email of the user
+     */
+    email: string;
+    /**
+     * Username of the user
+     */
+    username: string;
+    /**
+     * Signout button click handler
+     */
+    onSignout: () => void;
+    /**
+     * Check if the route is active
+     *
+     * @param route - Route to check if it is active
+     * @returns boolean - True if the route is active, false otherwise
+     */
+    checkIfActiveRoute: (route: string) => boolean;
+}
 
 const DrawerHeader = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -25,8 +46,17 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 // TODO: list of icons and titles should be passed in as props, to decouple it.
-export default function UIDrawer() {
-    const { checkIfActiveRoute } = useRouteData();
+export const UIDrawer: FunctionComponent<UIDrawerProps> = (
+    props: UIDrawerProps): ReactElement => {
+
+    const {
+        email,
+        username,
+        onSignout,
+        checkIfActiveRoute
+    } = props;
+
+
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<UIDrawerVariant>("permanent");
 
@@ -65,6 +95,9 @@ export default function UIDrawer() {
 
         // Check initial screen size
         checkDrawerState();
+
+        // TODO: REMOVE
+        onSignout();
 
         // Add event listener for window resize
         window.addEventListener("resize", checkDrawerState);
@@ -155,10 +188,10 @@ export default function UIDrawer() {
                                     alignItems="flex-start"
                                 >
                                     <Typography variant="body2" className={ styles["uiDrawerUsername"] }>
-                                        Username
+                                        { username }
                                     </Typography>
-                                    <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] }>
-                                        Email
+                                    <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] } >
+                                        { email }
                                     </Typography>
                                 </Stack>
                             </Stack>
@@ -167,4 +200,4 @@ export default function UIDrawer() {
                 </MuiDrawer>
             )
     );
-}
+};
