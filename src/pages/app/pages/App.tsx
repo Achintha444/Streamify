@@ -1,11 +1,15 @@
+import { AuthenticatedComponent } from "@asgardeo/auth-react";
 import RouteDataProvider from "../../../states/routeData/providers/routeDateProvider";
+import { NotFound } from "../../errors/notFound";
 import AppLayout from "../components/AppLayout";
 
 function App() {
     return (
-        <RouteDataProvider>
-            <AppLayout />
-        </RouteDataProvider>
+        <AuthenticatedComponent fallback={ <NotFound /> }>
+            <RouteDataProvider>
+                <AppLayout />
+            </RouteDataProvider>
+        </AuthenticatedComponent>
     );
 }
 
