@@ -23,7 +23,7 @@ function LoginPage() {
         }).finally(() => {
             setIsAuthenticationLoading(false);
         });
-    }, []);
+    }, [ isAuthenticated ]);
 
     return (
         !isAuthenticationLoading

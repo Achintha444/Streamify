@@ -16,6 +16,7 @@ import { images } from "../../assets/images";
 import { getContentRoutes } from "../../routes/contentRoutes";
 import ContentRoute from "../../routes/models/contentRoute";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../utils/utility";
+import { UIIconMenuList } from "../uiIconMenu/uiIconMenu";
 
 interface UIDrawerProps {
     /**
@@ -55,7 +56,6 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
         onSignout,
         checkIfActiveRoute
     } = props;
-
 
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<UIDrawerVariant>("permanent");
@@ -175,6 +175,7 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
                                 </NavLink>
                             )) }
                         </List>
+                        <UIIconMenuList iconMenuList="asdd" />
                         <Button className={ styles["uiDrawerUserDetails"] } variant="text">
                             <Stack
                                 className={ styles["uiDrawerUserDetailsContainer"] }
