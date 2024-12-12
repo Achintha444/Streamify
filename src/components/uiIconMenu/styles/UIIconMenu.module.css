@@ -29,4 +29,5 @@
     padding-left: 20px;
     margin-left: 16px;
     margin-right: 16px;
+    transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out;
 }
