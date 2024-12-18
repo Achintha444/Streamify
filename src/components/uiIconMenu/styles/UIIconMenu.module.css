@@ -15,19 +15,32 @@
 }
 
 .uiIconMenuListItem {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    margin-left: 4px;
+    margin-right: 4px;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 .uiIconMenuListItem:hover {
-    background: var(--color-white-secondary);
+    background: var(--color-white-secondary) !important;
     border: 1px solid var(--color-card-stroke);
-    border-radius: 8px;
+    border-radius: 14px;
     padding-left: 20px;
-    margin-left: 16px;
-    margin-right: 16px;
-    transition: margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+    margin-left: 6px;
+    margin-right: 6px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.uiIconMenuListItemIcon {
+    color: var(--color-primary) !important;
+    min-width: 0 !important;
+    margin-right: 8px;
+}
+
+
+.uiIconMenuListItemText >* {
+    text-decoration: dashed !important;
+    color: var(--color-primary) !important;
+    font-weight: 600 !important;
 }
