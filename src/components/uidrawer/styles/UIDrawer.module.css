@@ -95,10 +95,11 @@
     font-weight: 500 !important;
 }
 
+.uiDrawerUserDetailsSelected,
 .uiDrawerUserDetails:hover {
     background: var(--drawer-hover-card) !important;
-    border: 1px solid var(--color-card-stroke);
-    border-radius: 16px;
+    border: 1px solid var(--color-card-stroke) !important;
+    border-radius: 16px !important;
     color: var(--color-primary) !important;
     transition: margin-left 0.2s ease-in-out !important;
     backdrop-filter: blur(var(--drawer-hover-card-background-blur));

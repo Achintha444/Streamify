@@ -8,10 +8,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import { Cancel01Icon, Menu02Icon } from "hugeicons-react";
-import { FunctionComponent, ReactElement, useEffect, useState } from "react";
+import { FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import { UIDrawerVariant } from "./models/uidrawerVariant";
 import styles from "./styles/UIDrawer.module.css";
+import { getUIDrawerUserDetails } from "./utils/uiDrawerUserDetailsMenu";
 import { images } from "../../assets/images";
 import { getContentRoutes } from "../../routes/contentRoutes";
 import ContentRoute from "../../routes/models/contentRoute";
@@ -59,6 +60,9 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
 
     const [ isDrawerOpen, setDrawerOpen ] = useState<boolean>(true);
     const [ drawerVariant, setDrawerVariant ] = useState<UIDrawerVariant>("permanent");
+    const [ isLogoutDialogOpen, setLogoutDialogOpen ] = useState<boolean>(false);
+
+    const anchorRef = useRef<HTMLButtonElement>(null);
 
     /**
      * Handle the opening of the drawer on mobile devices
@@ -81,6 +85,13 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
      */
     const checkIfDrawerIsOpen = (): boolean =>
         isDrawerOpen || drawerVariant === "permanent";
+
+    /**
+     * Handle om ui drawer user details click, to open the logout dialog
+     */
+    const onUIDrawerUserDetailsClick = () => {
+        setLogoutDialogOpen(!isLogoutDialogOpen);
+    };
 
     useEffect(() => {
         // Function to check and update drawer state based on screen width
@@ -175,28 +186,43 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
                                 </NavLink>
                             )) }
                         </List>
-                        <UIIconMenuList iconMenuList="asdd" />
-                        <Button className={ styles["uiDrawerUserDetails"] } variant="text">
-                            <Stack
-                                className={ styles["uiDrawerUserDetailsContainer"] }
-                                direction="row"
-                                alignItems="center"
-                                spacing={ 2 }
+                        <Stack>
+                            <UIIconMenuList
+                                open={ isLogoutDialogOpen }
+                                anchorElement={ anchorRef }
+                                iconMenuList={ getUIDrawerUserDetails() }
+                            />
+                            <Button
+                                className={ `${
+                                    isLogoutDialogOpen
+                                        ? styles["uiDrawerUserDetailsSelected"]
+                                        : styles["uiDrawerUserDetails"]
+                                }` }
+                                variant="text"
+                                onClick={ onUIDrawerUserDetailsClick }
+                                ref = { anchorRef }
                             >
-                                <Avatar className={ styles["uiDrawerUserDetailsAvatar"] } sizes="small" />
                                 <Stack
-                                    className={ styles["uiDrawerUserDetailsTextContainer"] }
-                                    alignItems="flex-start"
+                                    className={ styles["uiDrawerUserDetailsContainer"] }
+                                    direction="row"
+                                    alignItems="center"
+                                    spacing={ 2 }
                                 >
-                                    <Typography variant="body2" className={ styles["uiDrawerUsername"] }>
-                                        { username }
-                                    </Typography>
-                                    <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] } >
-                                        { email }
-                                    </Typography>
+                                    <Avatar className={ styles["uiDrawerUserDetailsAvatar"] } sizes="small" />
+                                    <Stack
+                                        className={ styles["uiDrawerUserDetailsTextContainer"] }
+                                        alignItems="flex-start"
+                                    >
+                                        <Typography variant="body2" className={ styles["uiDrawerUsername"] }>
+                                            { username }
+                                        </Typography>
+                                        <Typography variant="subtitle2" className={ styles["uiDrawerEmail"] } >
+                                            { email }
+                                        </Typography>
+                                    </Stack>
                                 </Stack>
-                            </Stack>
-                        </Button>
+                            </Button>
+                        </Stack>
                     </Stack>
                 </MuiDrawer>
             )
