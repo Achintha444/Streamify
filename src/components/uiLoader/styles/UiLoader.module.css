@@ -1,0 +1,13 @@
+.uiLoaderContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.uiLoaderImage {
+    width: 340px;
+    height: 340px;
+}
+
+.uiLoaderText {
+    color: var(--color-primary);
+}

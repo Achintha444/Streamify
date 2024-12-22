@@ -40,6 +40,8 @@
     stroke-width: 1;
 }
 
+.uiDrawerListItemButtonSelected,
+.uiDrawerListItemButton.Mui-selected,
 .uiDrawerListItemButton {
     min-height: 48px !important;
     padding-left: 20px !important;
@@ -48,28 +50,37 @@
     transition: margin-left 0.3s ease-in-out !important;
 }
 
+.uiDrawerListItemButtonSelected,
+.uiDrawerListItemButton.Mui-selected,
 .uiDrawerListItemButton:hover {
     background: var(--drawer-hover-card) !important;
-    border: 1px solid var(--color-card-stroke);
-    border-radius: 16px;
+    border: 1px solid var(--color-card-stroke) !important;
+    border-radius: 16px !important;
     color: var(--color-primary) !important;
     margin-left: 6px !important;
-    margin-right: 6px;
+    margin-right: 6px !important;
     transition: margin-left 0.2s ease-in-out;
-    backdrop-filter: blur(var(--drawer-hover-card-background-blur));
-    box-shadow: var(--drawer-hover-card-shadow);
+    backdrop-filter: blur(var(--drawer-hover-card-background-blur)) !important;
+    box-shadow: var(--drawer-hover-card-shadow) !important;
 }
 
+.uiDrawerListItemButtonSelected .uiDrawerListItemText>* ,
+.uiDrawerListItemButton.Mui-selected .uiDrawerListItemText>* ,
 .uiDrawerListItemButton:hover .uiDrawerListItemText>* {
+    text-decoration: dashed !important;
     color: var(--color-primary) !important;
-    font-weight: 500;
+    font-weight: 600;
 }
 
+.uiDrawerListItemButtonSelected .uiDrawerListItemIcon,
+.uiDrawerListItemButton.Mui-selected .uiDrawerListItemIcon,
 .uiDrawerListItemButton:hover .uiDrawerListItemIcon {
     color: var(--color-primary) !important;
-    font-weight: 500;
+    font-weight: 600;
 }
 
+.uiDrawerListItemButtonSelected .uiDrawerListItemIcon>*,
+.uiDrawerListItemButton.Mui-selected .uiDrawerListItemIcon>*,
 .uiDrawerListItemButton:hover .uiDrawerListItemIcon>* {
     stroke-width: 1.5;
 }
@@ -84,10 +95,11 @@
     font-weight: 500 !important;
 }
 
+.uiDrawerUserDetailsSelected,
 .uiDrawerUserDetails:hover {
     background: var(--drawer-hover-card) !important;
-    border: 1px solid var(--color-card-stroke);
-    border-radius: 16px;
+    border: 1px solid var(--color-card-stroke) !important;
+    border-radius: 16px !important;
     color: var(--color-primary) !important;
     transition: margin-left 0.2s ease-in-out !important;
     backdrop-filter: blur(var(--drawer-hover-card-background-blur));
@@ -100,6 +112,13 @@
 
 .uiDrawerUserDetailsContainer {
     width: 100%;
+}
+
+.uiDrawerEmail, .uiDrawerUsername {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .uiDrawerUserDetails:hover .uiDrawerUsername {

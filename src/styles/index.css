@@ -13,8 +13,10 @@
 	/* Colors */
 	--color-primary: #4B6D9B;
 	--color-white-primary: #FDFDFF;
+	--color-white-secondary: #F6F8FF;
 	--color-text-secondary: #6F7A88 ;
 	--color-card-stroke: #C2D1FF64;
+	--color-danger: #9C4B50;
 	--drawer-hover-card: linear-gradient(0.25turn, var(--color-white-primary), #FDFDFF00);
 	--drawer-hover-card-background-blur: 100px;
 	--drawer-hover-card-shadow: 0 4px 8px 0 #4b6c9b15;
@@ -26,4 +28,5 @@ body {
 
 a {
 	color: var(--color-primary);
+	text-decoration: none;
 }

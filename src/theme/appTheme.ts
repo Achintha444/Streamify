@@ -79,6 +79,12 @@ export const appTheme = responsiveFontSizes(createTheme({
                     style: {
                         color: Colors.colorWhitePrimary
                     }
+                },
+                {
+                    props: { variant: "outlined" },
+                    style: {
+                        borderColor: Colors.colorPrimary
+                    }
                 }
             ]
         },
@@ -90,7 +96,8 @@ export const appTheme = responsiveFontSizes(createTheme({
                 docked: {
                     height: "100%",
                     minWidth: "104px",
-                    width: "282px"
+                    width: "282px",
+                    maxWidth: "282px"
                 },
                 paper: {
                     border: `1px solid ${Colors.colorWhiteTernary}`,
