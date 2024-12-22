@@ -5,6 +5,10 @@ import { Context, createContext } from "react";
  */
 export interface InternalAuthDataContextProps {
     /**
+     * Indicates if there was an error retrieving the ID token.
+     */
+    isIdTokenRetrievalError: boolean;
+    /**
      * Indicates if the authentication is loading.
      */
     isAuthenticationLoading: boolean;
@@ -13,9 +17,13 @@ export interface InternalAuthDataContextProps {
      */
     navigateToRouteOnAuthentication: (route: string) => void;
     /**
-     * Navigates to the provided route if the user is not authenticated.
+     * User email.
      */
-    navigateToRouterIfNotAuthenticated: (route: string) => void;
+    userEmail: string;
+    /**
+     * User name.
+     */
+    userName: string;
 }
 
 /**

@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react";
-import { FunctionComponent, PropsWithChildren, ReactElement, useState } from "react";
+import { FunctionComponent, PropsWithChildren, ReactElement, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import InternalAuthDataContext from "../contexts/internalAuthDataContext";
 
@@ -19,10 +19,45 @@ const InternalAuthDataProvider: FunctionComponent<InternalAuthDataProviderProps>
 ): ReactElement => {
     const { children } = props;
 
-    const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated, getDecodedIDToken } = useAuthContext();
     const navigate = useNavigate();
 
     const [ isAuthenticationLoading, setIsAuthenticationLoading ] = useState<boolean>(true);
+    const [ userEmail, setUserEmail ] = useState<string>("");
+    const [ userName, setUserName ] = useState<string>("");
+    const [ isIdTokenRetrievalError, setIdTokenRetrievalError ] = useState<boolean>(false);
+
+    // Effect to handle user data on authentication changes
+    useEffect(() => {
+        const loadUserData = async () => {
+            try {
+                const authenticated = await isAuthenticated();
+
+                if (authenticated) {
+                    // Only fetch token and set user data if authenticated
+                    const idToken = await getDecodedIDToken();
+
+                    setUserEmail(idToken.username);
+                    setUserName(idToken.given_name);
+                    setIdTokenRetrievalError(false);
+                } else {
+                    // Clear user data when not authenticated
+                    setUserEmail("");
+                    setUserName("");
+                }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            } catch (error) {
+                setIdTokenRetrievalError(true);
+                // Clear user data on error
+                setUserEmail("");
+                setUserName("");
+            } finally {
+                setIsAuthenticationLoading(false);
+            }
+        };
+
+        loadUserData();
+    }, [ isAuthenticated ]); //
 
     /**
      * Navigates to the provided route if the user is authenticated.
@@ -41,29 +76,14 @@ const InternalAuthDataProvider: FunctionComponent<InternalAuthDataProviderProps>
         });
     };
 
-    /**
-     * Navigates to the provided route if the user is not authenticated.
-     *
-     * @param route - Route to navigate to.
-     */
-    const navigateToRouterIfNotAuthenticated = (route: string): void => {
-        setIsAuthenticationLoading(true);
-
-        isAuthenticated().then((response) => {
-            if (!response) {
-                navigate(route);
-            }
-        }).finally(() => {
-            setIsAuthenticationLoading(false);
-        });
-    };
-
     return (
         <InternalAuthDataContext.Provider
             value={ {
                 isAuthenticationLoading: isAuthenticationLoading,
+                isIdTokenRetrievalError: isIdTokenRetrievalError,
                 navigateToRouteOnAuthentication: navigateToRouteOnAuthentication,
-                navigateToRouterIfNotAuthenticated: navigateToRouterIfNotAuthenticated
+                userEmail: userEmail,
+                userName: userName
             } }
         >
             { children }

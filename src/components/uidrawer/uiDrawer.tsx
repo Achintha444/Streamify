@@ -29,10 +29,6 @@ interface UIDrawerProps {
      */
     username: string;
     /**
-     * Signout button click handler
-     */
-    onSignout: () => void;
-    /**
      * Check if the route is active
      *
      * @param route - Route to check if it is active
@@ -54,7 +50,6 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
     const {
         email,
         username,
-        onSignout,
         checkIfActiveRoute
     } = props;
 
@@ -106,9 +101,6 @@ export const UIDrawer: FunctionComponent<UIDrawerProps> = (
 
         // Check initial screen size
         checkDrawerState();
-
-        // TODO: REMOVE
-        onSignout();
 
         // Add event listener for window resize
         window.addEventListener("resize", checkDrawerState);

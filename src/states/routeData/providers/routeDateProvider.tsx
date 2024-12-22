@@ -5,7 +5,7 @@ import ContentRoute from "../../../routes/models/contentRoute";
 import RouteDataContext from "../contexts/routeDataContext";
 
 /**
- * Props interface for the Branding preference provider.
+ * Props interface for the [RouteDataProvider]
  */
 export type RouteDataProviderProps = PropsWithChildren;
 
