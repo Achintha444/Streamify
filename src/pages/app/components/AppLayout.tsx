@@ -1,22 +1,17 @@
-import { useAuthContext } from "@asgardeo/auth-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { UIDrawer } from "../../../components/uidrawer/uiDrawer";
 import { UiLoader } from "../../../components/uiLoader/uiLoader";
 import { MainContentLayout } from "../../../layouts/mainContentLayout";
 import { getContentRoutes } from "../../../routes/contentRoutes";
+import useInternalAuthData from "../../../states/internalAuthData/hooks/useRouteData";
 import useRouteData from "../../../states/routeData/hooks/useRouteData";
 import { NotFound } from "../../errors/notFound";
 
 function AppLayout() {
     const { checkIfActiveRoute, activeContentRoute } = useRouteData();
     const navigate = useNavigate();
-    const { getDecodedIDToken } = useAuthContext();
-
-    const [ loading, setLoading ] = useState<boolean>(true);
-    const [ userEmail, setUserEmail ] = useState<string>("");
-    const [ userName, setUserName ] = useState<string>("");
-    const [ isIdTokenRetrievalError, setIdTokenRetrievalError ] = useState<boolean>(false);
+    const { isAuthenticationLoading, userName, userEmail, isIdTokenRetrievalError } = useInternalAuthData();
 
     useEffect(() => {
         if (checkIfActiveRoute("/app") || checkIfActiveRoute("/app/")) {
@@ -24,19 +19,8 @@ function AppLayout() {
         }
     }, [ checkIfActiveRoute, navigate ]);
 
-    useEffect(() => {
-        getDecodedIDToken().then((idToken) => {
-            setUserEmail(idToken.username);
-            setUserName(idToken.given_name);
-        }).catch(() => {
-            setIdTokenRetrievalError(true);
-        }).finally(() => {
-            setLoading(false);
-        });
-    }, []);
-
     return (
-        loading
+        isAuthenticationLoading
             ? <UiLoader />
             : !(checkIfActiveRoute("/app") || checkIfActiveRoute("/app/") || isIdTokenRetrievalError)
                 ? (
@@ -45,7 +29,6 @@ function AppLayout() {
                             <UIDrawer
                                 email={ userEmail }
                                 username={ userName }
-                                onSignout={ () => { /* TODO: Implement signout */ } }
                                 checkIfActiveRoute={ checkIfActiveRoute }
                             />) }
                         content={ activeContentRoute!.component }
