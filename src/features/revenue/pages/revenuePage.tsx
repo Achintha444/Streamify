@@ -1,5 +1,5 @@
 export default function RevenuePage() {
     return (
-        <div>Overview</div>
+        <div>Under Construction</div>
     );
 }
