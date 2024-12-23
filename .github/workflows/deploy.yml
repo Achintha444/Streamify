@@ -8,7 +8,7 @@ env:
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
 jobs:
-  🎯 Deploy-Production:
+  deploy-Production:
     runs-on: ubuntu-latest
     strategy:
       matrix:
