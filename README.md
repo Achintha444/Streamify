@@ -1,8 +1,8 @@
 # Streamify: Information Dashboard
 
 <div align="center">
-  <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/pr-builder.yml"><img src="https://github.com/asgardeo/mobile-ui-sdks/actions/workflows/pr-builder.yml/badge.svg" alt="👷 PR Builder"></a>
-  <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/deploy.yml"><img src="https://github.com/asgardeo/mobile-ui-sdks/actions/workflows/deploy.yml/badge.svg" alt="🚀 Deploy the application to Vercel"></a>
+  <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/pr-builder.yml"><img src="https://github.com/Achintha444/Streamify/actions/workflows/pr-builder.yml/badge.svg" alt="👷 PR Builder"></a>
+  <a href="https://github.com/Achintha444/Streamify/blob/main/.github/workflows/deploy.yml"><img src="https://github.com/Achintha444/Streamify/actions/workflows/deploy.yml/badge.svg" alt="🚀 Deploy the application to Vercel"></a>
   
   <a href="https://achintha-isuru.vercel.app/"><img src="https://img.shields.io/badge/view_my-portfolio-violet" alt="portfolio"></a>
   <a href="https://www.linkedin.com/in/achintha-isuru/"><img src="https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white" alt="linkedin"></a>
