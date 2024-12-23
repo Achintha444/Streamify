@@ -23,17 +23,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      - name: 🧹 Clean npm cache and remove node_modules
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+
       - name: 📦 Install dependencies
-        run: npm ci
+        run: |
+          npm install
+          npm install @rollup/rollup-linux-x64-gnu
 
       - name: ⚡ Install Vercel CLI
         run: npm install --global vercel@latest
 
       - name: 🔄 Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=${{ inputs.environment }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: 👷 Build Project Artifacts
-        run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          vercel build --${{ inputs.environment }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: 🚀 Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --${{ inputs.environment }} --token=${{ secrets.VERCEL_TOKEN }}
