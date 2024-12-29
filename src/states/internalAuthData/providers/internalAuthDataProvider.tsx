@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react";
-import { FunctionComponent, PropsWithChildren, ReactElement, useEffect, useState } from "react";
+import { FunctionComponent, PropsWithChildren, ReactElement, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import InternalAuthDataContext from "../contexts/internalAuthDataContext";
 
@@ -31,6 +31,7 @@ const InternalAuthDataProvider: FunctionComponent<InternalAuthDataProviderProps>
     useEffect(() => {
         const loadUserData = async () => {
             try {
+                setIsAuthenticationLoading(true);
                 const authenticated = await isAuthenticated();
 
                 if (authenticated) {
@@ -57,14 +58,14 @@ const InternalAuthDataProvider: FunctionComponent<InternalAuthDataProviderProps>
         };
 
         loadUserData();
-    }, [ isAuthenticated ]); //
+    }, []); //
 
     /**
      * Navigates to the provided route if the user is authenticated.
      *
      * @param route - Route to navigate to.
      */
-    const navigateToRouteOnAuthentication = (route: string): void => {
+    const navigateToRouteOnAuthentication = useCallback((route: string): void => {
         setIsAuthenticationLoading(true);
 
         isAuthenticated().then((response) => {
@@ -74,7 +75,7 @@ const InternalAuthDataProvider: FunctionComponent<InternalAuthDataProviderProps>
         }).finally(() => {
             setIsAuthenticationLoading(false);
         });
-    };
+    }, [ isAuthenticated, navigate ]);
 
     return (
         <InternalAuthDataContext.Provider
