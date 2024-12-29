@@ -1,7 +1,7 @@
 /**
  * Represents the structure of the API response.
  */
-export interface SongResponse {
+export interface SongsResponse {
     /**
      * The date of the data in the format "YYYY-DD-MM".
      */
