@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid2/Grid2";
 import { FunctionComponent, ReactElement, ReactNode } from "react";
+import { AppContentLayout } from "./AppContentLayout";
 import styles from "./styles/MainLayout.module.css";
 import { UiMainContentTitle } from "../components/uiMainContentTitle/uiMainContentTitle";
 import { isScreenMobileOrSmall } from "../utils/utility";
@@ -57,8 +58,10 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                         <Grid size="auto">
                             <UiMainContentTitle title={ title } subTitle={ subTitle } />
                         </Grid>
-                        <Grid size="grow" sx={ { border: "1px solid red" } }>
-                            { content }
+                        <Grid size="grow">
+                            <AppContentLayout>
+                                { content }
+                            </AppContentLayout>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -79,8 +82,10 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                                 <UiMainContentTitle title={ title } subTitle={ subTitle } />
                             </Grid>
                         </Grid>
-                        <Grid size="grow" sx={ { border: "1px solid red" } }>
-                            { content }
+                        <Grid size="grow">
+                            <AppContentLayout>
+                                { content }
+                            </AppContentLayout>
                         </Grid>
                     </Grid>
                 </Grid>

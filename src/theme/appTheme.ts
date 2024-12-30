@@ -88,6 +88,21 @@ export const appTheme = responsiveFontSizes(createTheme({
                 }
             ]
         },
+        MuiCard: {
+            defaultProps: {
+                variant: "outlined"
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: "16px",
+                    borderColor: Colors.colorWhiteTernary,
+                    backdropFilter: "blur(24px)",
+                    boxShadow: "0 4px 8px 0 rgba(75, 109, 155, 0.04)",
+                    background: `linear-gradient(to right, 
+                        ${ Colors.colorWhitePrimary }, ${ Colors.colorWhiteSecondary })`
+                }
+            }
+        },
         MuiDrawer: {
             defaultProps: {
                 variant: "permanent"
