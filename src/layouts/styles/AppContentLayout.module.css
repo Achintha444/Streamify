@@ -1,3 +1,5 @@
 .appContentLayout {
-    padding: 48px 0px !important;
+    padding: 24px 0px !important;
+    margin: 0px !important;
+    max-width: 100% !important;
 }
