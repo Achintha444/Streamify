@@ -3,16 +3,17 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import SubSectionCard from "../../../pages/app/components/SubSectionCard";
 import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
-import { Home01Icon } from "hugeicons-react";
 
+// TODO: Create a local-data service to fetch the data
 export default function OverviewPage() {
     return (
         <div>
-            <SubSectionLayout title="Overview" content={ <Home01Icon /> } />
+            <SubSectionLayout title="Overview" content={ <SubSectionCard /> } />
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                    <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                    <Typography variant="h5" component="div">
                         Word of the Day
                     </Typography>
                     <Typography variant="h5" component="div">

@@ -103,6 +103,13 @@ export const appTheme = responsiveFontSizes(createTheme({
                 }
             }
         },
+        MuiCardContent: {
+            styleOverrides: {
+                root: {
+                    padding: "16px !important"
+                }
+            }
+        },
         MuiDrawer: {
             defaultProps: {
                 variant: "permanent"
