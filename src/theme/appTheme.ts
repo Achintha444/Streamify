@@ -219,6 +219,11 @@ export const appTheme = responsiveFontSizes(createTheme({
             color: Colors.colorPrimary,
             fontWeight: "bold"
         },
+        h6: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorPrimary,
+            fontWeight: "semibold"
+        },
         caption: {
             fontFamily: Font.defaultFontFamily,
             fontSize: "12px",
