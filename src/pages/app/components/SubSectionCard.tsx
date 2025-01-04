@@ -52,7 +52,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
     };
 
     return (
-        <Card>
+        <Card className={ styles.subSectionCard }>
             <CardContent>
                 <Grid container spacing={ 2 }>
                     {
