@@ -1,8 +1,7 @@
-import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
-import { FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
+import { Fragment, FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
 import styles from "../styles/SubSectionLayout.module.css";
 
 interface SubSectionLayoutProps {
@@ -68,19 +67,11 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = (
                     spacing={ 2 }
                     className={ styles.subSectionLayoutContent }
                     ref={ contentRef }
-                    style={ {
-                        display: "flex",
-                        cursor: "grab"
-                    } }
                 >
                     { displayItems.map((item, index) => (
-                        <Container
-                            key={ index }
-                            disableGutters
-                            className={ styles.subSectionLayoutItem }
-                        >
+                        <Fragment key={ index }>
                             { item }
-                        </Container>
+                        </Fragment>
                     )) }
                 </Stack>
             </motion.div>

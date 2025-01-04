@@ -2,3 +2,8 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+.subSectionLayoutContent {
+    cursor: grab;
+    display: flex;
+}
