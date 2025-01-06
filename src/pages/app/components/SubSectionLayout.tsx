@@ -2,22 +2,32 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { Fragment, FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
+import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../../utils/utility";
 import styles from "../styles/SubSectionLayout.module.css";
 
+/**
+ * Sub section layout for displaying multiple cards in a horizontal scrollable layout
+ */
 interface SubSectionLayoutProps {
+    /**
+     * Title of the sub section
+     */
     title?: string;
+    /**
+     * List of items to display in the sub section
+     */
     displayItems: ReactElement[];
 }
 
 export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
     title,
-    displayItems,
+    displayItems
 }): ReactElement => {
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-    const [dragConstraints, setDragConstraints] = useState<{ left: number; right: number }>({
+    const [ dragConstraints, setDragConstraints ] = useState<{ left: number; right: number }>({
         left: 0,
-        right: 0,
+        right: 0
     });
 
     useEffect(() => {
@@ -26,8 +36,16 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
                 const containerWidth = containerRef.current.offsetWidth;
                 const cardSpacing = 16; // Spacing between cards (px), equivalent to `spacing={2}` in the Stack
                 const cardWidth = contentRef.current.children[0]?.clientWidth || 0;
-                const totalCards = displayItems.length;
-                const contentWidth = totalCards * cardWidth + (totalCards - 1) * cardSpacing;
+
+                let totalCards = displayItems.length + 0.1;
+
+                if (isScreenMobileOrSmall()) {
+                    totalCards = displayItems.length + 0.16;
+                } else if (isScreenTabletOrSmaller()) {
+                    totalCards = displayItems.length - 0.42;
+                }
+
+                const contentWidth = (totalCards * cardWidth) + cardSpacing;
 
                 // Maximum draggable distance to keep the last card aligned
                 const maxDrag = Math.max(contentWidth - containerWidth, 0);
@@ -44,45 +62,38 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
         return () => {
             window.removeEventListener("resize", updateDragConstraints);
         };
-    }, [displayItems]);
+    }, [ displayItems ]);
 
     return (
         <Stack
-            spacing={1}
+            spacing={ 1 }
             direction="column"
-            ref={containerRef}
-            style={{
+            ref={ containerRef }
+            style={ {
                 overflow: "hidden", // Prevent overflow outside the container
-                position: "relative",
-            }}
+                position: "relative"
+            } }
         >
-            {title && title.length > 0 && (
-                <Typography variant="h6" className={styles.subSectionLayoutTitle}>
-                    {title}
+            { title && title.length > 0 && (
+                <Typography variant="h6" className={ styles.subSectionLayoutTitle }>
+                    { title }
                 </Typography>
-            )}
+            ) }
 
             <motion.div
                 drag="x"
-                dragConstraints={dragConstraints}
-                style={{
-                    display: "flex",
-                    position: "relative",
-                    cursor: "grab",
-                }}
+                dragConstraints={ dragConstraints }
+                className={ styles.subSectionLayoutContainer }
             >
                 <Stack
                     direction="row"
-                    spacing={2}
-                    ref={contentRef}
-                    className={styles.subSectionLayoutContent}
-                    style={{
-                        display: "flex",
-                    }}
+                    spacing={ 2 }
+                    ref={ contentRef }
+                    className={ styles.subSectionLayoutContent }
                 >
-                    {displayItems.map((item, index) => (
-                        <Fragment key={index}>{item}</Fragment>
-                    ))}
+                    { displayItems.map((item, index) => (
+                        <Fragment key={ index }>{ item }</Fragment>
+                    )) }
                 </Stack>
             </motion.div>
         </Stack>
