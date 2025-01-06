@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid2/Grid2";
+import Stack from "@mui/material/Stack";
 import { FunctionComponent, ReactElement, ReactNode } from "react";
 import { AppContentLayout } from "./AppContentLayout";
 import styles from "./styles/MainLayout.module.css";
@@ -50,7 +51,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                         { drawerComponent }
                     </Grid>
                     <Grid
-                        className={ styles["contentContainer"] }
+                        className={ styles.contentContainer }
                         direction="column"
                         container
                         size="grow"
@@ -73,20 +74,14 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                     flexWrap="wrap"
                     className={ `${styles.mainContentLayout} ${styles.mainContentLayoutMobile}` }
                 >
-                    <Grid direction="column" container size="grow">
-                        <Grid direction="row" container size="grow">
-                            <Grid size="auto">
-                                { drawerComponent }
-                            </Grid>
-                            <Grid size="grow" sx={ { border: "1px solid red" } }>
-                                <UiMainContentTitle title={ title } subTitle={ subTitle } />
-                            </Grid>
-                        </Grid>
-                        <Grid size="grow">
-                            <AppContentLayout>
-                                { content }
-                            </AppContentLayout>
-                        </Grid>
+                    <Grid direction="column" container size="auto">
+                        <Stack direction="row">
+                            { drawerComponent }
+                            <UiMainContentTitle title={ title } subTitle={ subTitle } />
+                        </Stack>
+                        <AppContentLayout>
+                            { content }
+                        </AppContentLayout>
                     </Grid>
                 </Grid>
             )
