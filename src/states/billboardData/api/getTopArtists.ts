@@ -11,7 +11,7 @@ export const getTopArtists = async (): Promise<ArtistResponse> => {
     return APIClient.getInstance()
         .get<ArtistResponse>(Endpoints.topArtists)
         .then((response) => {
-            return response.data as unknown as ArtistResponse;
+            return response as unknown as ArtistResponse;
         })
         .catch((error) => {
             throw error;

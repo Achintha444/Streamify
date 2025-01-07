@@ -41,7 +41,7 @@ export const SubSectionListCard: FunctionComponent<SubSectionListCardProps> = (
     return (
         <Card className={ styles.subSectionCard }>
             <CardContent className={ styles.subSectionCardContent }>
-                <Stack spacing={ 2 } direction="column" justifyContent="center">
+                <Stack spacing={ 1 } direction="column" justifyContent="center">
                     {
                         contentList.map((contentItem: SubSectionListCardItem) => (
                             <Grid key={ contentItem.title } container spacing={ 2 } alignItems="center">

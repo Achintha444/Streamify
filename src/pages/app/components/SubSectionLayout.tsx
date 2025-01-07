@@ -14,15 +14,24 @@ interface SubSectionLayoutProps {
      */
     title?: string;
     /**
+     * Subtitle of the sub section
+     */
+    subtitle?: string;
+    /**
      * List of items to display in the sub section
      */
     displayItems: ReactElement[];
 }
 
-export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
-    title,
-    displayItems
-}): ReactElement => {
+export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = (
+    props: SubSectionLayoutProps): ReactElement => {
+
+    const {
+        title,
+        subtitle,
+        displayItems
+    } = props;
+
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [ dragConstraints, setDragConstraints ] = useState<{ left: number; right: number }>({
@@ -66,16 +75,23 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
 
     return (
         <Stack
-            spacing={ 1 }
+            spacing={ 2 }
             direction="column"
             className={ styles.subSectionLayout }
             ref={ containerRef }
         >
-            { title && title.length > 0 && (
-                <Typography variant="h6" className={ styles.subSectionLayoutTitle }>
-                    { title }
-                </Typography>
-            ) }
+            <Stack direction="column" >
+                { title && title.length > 0 && (
+                    <Typography variant="h6" className={ styles.subSectionLayoutTitle }>
+                        { title }
+                    </Typography>
+                ) }
+                { subtitle && subtitle.length > 0 && (
+                    <Typography variant="body2" className={ styles.subSectionLayoutTitle }>
+                        { subtitle }
+                    </Typography>
+                ) }
+            </Stack>
 
             <motion.div
                 drag="x"

@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren, ReactElement, useEffect, useState } from "react";
+import { FunctionComponent, PropsWithChildren, ReactElement, useMemo, useState } from "react";
 import { getTopArtists } from "../api/getTopArtists";
 import { getTopSongs } from "../api/getTopSongs";
 import BillboardDataContext from "../contexts/billboardDataContext";
@@ -30,7 +30,7 @@ const BillboardDataProvider: FunctionComponent<BillboardDataProviderProps> = (
     const [ isTopSongsError, setIsTopSongsError ] = useState<boolean>(false);
     const [ songsRankingDate, setSongsRankingDate ] = useState<string>("");
 
-    useEffect(() => {
+    useMemo(() => {
         const loadTopArtists = async () => {
             try {
                 const response = await getTopArtists();
@@ -49,7 +49,7 @@ const BillboardDataProvider: FunctionComponent<BillboardDataProviderProps> = (
         loadTopArtists();
     }, [ getTopArtists ]);
 
-    useEffect(() => {
+    useMemo(() => {
         const loadTopSongs = async () => {
             try {
                 const response = await getTopSongs();
