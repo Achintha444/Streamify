@@ -37,7 +37,7 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
                 const cardSpacing = 16; // Spacing between cards (px), equivalent to `spacing={2}` in the Stack
                 const cardWidth = contentRef.current.children[0]?.clientWidth || 0;
 
-                let totalCards = displayItems.length + 0.1;
+                let totalCards = displayItems.length;
 
                 if (isScreenMobileOrSmall()) {
                     totalCards = displayItems.length + 0.16;
@@ -68,11 +68,8 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = ({
         <Stack
             spacing={ 1 }
             direction="column"
+            className={ styles.subSectionLayout }
             ref={ containerRef }
-            style={ {
-                overflow: "hidden", // Prevent overflow outside the container
-                position: "relative"
-            } }
         >
             { title && title.length > 0 && (
                 <Typography variant="h6" className={ styles.subSectionLayoutTitle }>

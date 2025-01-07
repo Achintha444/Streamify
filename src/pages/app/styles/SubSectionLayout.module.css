@@ -1,3 +1,8 @@
+.subSectionLayout {
+    overflow: hidden;
+    position: relative;
+}
+
 .subSectionLayoutTitle {
     font-size: 20px;
     font-weight: 600;
@@ -12,5 +17,11 @@
 .subSectionLayoutContent {
     cursor: grab;
     display: flex;
-    width: 96vw;
+    width: 100%;
+}
+
+@media screen and (max-width: 468px) {
+    .subSectionLayoutContent {
+        width: 96vw;
+    }
 }
