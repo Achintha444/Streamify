@@ -1,6 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Fragment, FunctionComponent, ReactElement } from "react";
 import styles from "../styles/SubSectionCard.module.css";
@@ -53,8 +54,8 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
 
     return (
         <Card className={ styles.subSectionCard }>
-            <CardContent>
-                <Grid container spacing={ 2 }>
+            <CardContent className={ styles.subSectionCardContent }>
+                <Grid height="100%" container spacing={ 2 } alignItems="stretch">
                     {
                         imageUrl
                             ? (
@@ -63,7 +64,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                                 </Grid>
                             ) : null
                     }
-                    <Grid>
+                    <Stack justifyContent="center">
                         <Typography variant="body2">
                             { title }
                         </Typography>
@@ -78,7 +79,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                                     </Typography>
                                 ) : null
                         }
-                    </Grid>
+                    </Stack>
                 </Grid>
             </CardContent>
         </Card>

@@ -1,13 +1,26 @@
 .subSectionCardImage {
-    width: 100%;
     height: 100%;
+    width: 100%;
+    display: flex;
     object-fit: cover;
     border-radius: 12px;
+}
+
+.subSectionListCardImage {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 .subSectionCard {
     width: 100%;
     min-width: 300px;
+    display: flex;
+}
+
+.subSectionCardContent {
+    height: auto;
 }
 
 @media screen and (max-width: 468px) {
