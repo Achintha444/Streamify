@@ -3,7 +3,7 @@ import BillboardDataProvider from "../../../states/billboardData/providers/billb
 import InternalAuthDataProvider from "../../../states/internalAuthData/providers/internalAuthDataProvider";
 import RouteDataProvider from "../../../states/routeData/providers/routeDateProvider";
 import { NotFound } from "../../errors/notFound";
-import AppLayout from "../components/AppLayout";
+import AppLayout from "../layout/AppLayout";
 
 function App() {
     return (
