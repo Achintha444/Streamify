@@ -23,6 +23,10 @@
     height: auto;
 }
 
+.errorText {
+    color: var(--color-danger) !important;
+}
+
 @media screen and (max-width: 468px) {
     .subSectionCard {
         min-width: 270px;

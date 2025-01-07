@@ -23,6 +23,10 @@ interface SubSectionCardProps {
      * caption
      */
     caption?: string | undefined;
+    /**
+     * is error text
+     */
+    isError?: boolean | undefined;
 }
 
 /**
@@ -35,7 +39,8 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
         title,
         content,
         imageUrl,
-        caption
+        caption,
+        isError
     } = props;
 
     // Create a string with line breaks for the main content
@@ -65,10 +70,20 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                             ) : null
                     }
                     <Stack justifyContent="center">
-                        <Typography variant="body2">
+                        <Typography
+                            variant="body2"
+                            className={
+                                isError ? styles.errorText : ""
+                            }
+                        >
                             { title }
                         </Typography>
-                        <Typography typography="h3" >
+                        <Typography
+                            variant="h3"
+                            className={
+                                isError ? styles.errorText : ""
+                            }
+                        >
                             { createMainContentString(content) }
                         </Typography>
                         {
