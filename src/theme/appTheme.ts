@@ -211,6 +211,10 @@ export const appTheme = responsiveFontSizes(createTheme({
             fontSize: "12px",
             color: Colors.colorTextSecondary
         },
+        h3: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorTextPrimary
+        },
         h4: {
             fontFamily: Font.secondaryFontFamily
         },

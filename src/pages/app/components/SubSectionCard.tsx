@@ -58,7 +58,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                     {
                         imageUrl
                             ? (
-                                <Grid size={ 2 }>
+                                <Grid size={ 4 }>
                                     <img className={ styles.subSectionCardImage } src={ imageUrl } alt="random" />
                                 </Grid>
                             ) : null
@@ -67,7 +67,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                         <Typography variant="body2">
                             { title }
                         </Typography>
-                        <Typography fontSize="60px" fontWeight="200" color="text.primary">
+                        <Typography typography="h3" >
                             { createMainContentString(content) }
                         </Typography>
                         {
