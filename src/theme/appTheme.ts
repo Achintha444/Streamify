@@ -16,7 +16,7 @@ const Colors = {
     colorWhitePrimaryForCard: "#FDFDFF47",
     colorWhiteSecondaryForCard: "#F6F8FF47",
     colorWhiteTernary: "#C2D1FF",
-    colorWhiteTernaryForCard: "#C2D1FF7D",
+    colorWhiteTernaryForCard: "#C2D1FF70",
     colorWhiteTernaryBackdrop: ""
 };
 
@@ -99,11 +99,9 @@ export const appTheme = responsiveFontSizes(createTheme({
                 root: {
                     borderRadius: "16px",
                     borderColor: Colors.colorWhiteTernaryForCard,
-                    borderWidth: "0.2px",
                     backdropFilter: "blur(24px)",
-                    boxShadow: "0 4px 8px 0 rgba(75, 109, 155, 0.04)",
-                    background: `linear-gradient(to right, 
-                        ${ Colors.colorWhitePrimaryForCard }, ${ Colors.colorWhiteSecondaryForCard })`
+                    boxShadow: "0px 12px 12px 4px rgba(75, 109, 155, 0.04)",
+                    background: Colors.colorWhiteSecondaryForCard
                 }
             }
         },
