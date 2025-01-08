@@ -4,18 +4,21 @@ import { SubSectionCard } from "../../../pages/app/components/SubSectionCard";
 import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
 import { SubSectionListCard } from "../../../pages/app/components/SubSectionListCard";
 import useBillboardData from "../../../states/billboardData/hooks/useBillboardData";
+import { Artist } from "../../../states/billboardData/models/Artist";
 
+/**
+ * Component to display the top artists section
+ */
 export default function TopArtists() {
     const {
         isTopArtistsError,
         isTopArtistsLoading,
-        isTopSongsLoading,
         rankingDate,
         topArtists
     } = useBillboardData();
 
     // Show loading state
-    if (isTopArtistsLoading || isTopSongsLoading) {
+    if (isTopArtistsLoading) {
         return <CircularProgress />;
     }
 
@@ -25,7 +28,7 @@ export default function TopArtists() {
     }
 
     // Ensure we have enough artists before rendering
-    const hasEnoughArtists = topArtists?.length >= 4;
+    const hasEnoughArtists = topArtists?.length >= 5;
 
     if (!hasEnoughArtists) {
         return <div>Insufficient artist data</div>;
@@ -40,7 +43,7 @@ export default function TopArtists() {
                     <SubSectionCard
                         key="top-artist"
                         title="Billboard Top Artist"
-                        content={ topArtists[0]?.name || "N/A" }
+                        content= { topArtists[0]?.name || "N/A" }
                         imageUrl={ topArtists[0]?.image || "" }
                     />,
                     <SubSectionListCard
@@ -48,7 +51,7 @@ export default function TopArtists() {
                         contentList={
                             topArtists
                                 .slice(1, 5)
-                                .map((artist, index) => ({
+                                .map((artist: Artist, index: number) => ({
                                     imageUrl: artist?.image || "",
                                     number: `${index + 2}`,  // Adding 2 because we start from the second artist
                                     title: artist?.name || "N/A"

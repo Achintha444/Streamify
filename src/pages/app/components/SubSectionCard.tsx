@@ -1,9 +1,8 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Fragment, FunctionComponent, ReactElement } from "react";
+import { FunctionComponent, ReactElement } from "react";
 import styles from "../styles/SubSectionCard.module.css";
 
 interface SubSectionCardProps {
@@ -43,33 +42,19 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
         isError
     } = props;
 
-    // Create a string with line breaks for the main content
-    const createMainContentString = (content: string): string | JSX.Element[] => {
-        const contentArray: string[] = content.split(" ");
-
-        return contentArray.length === 1
-            ? content
-            : contentArray.map((item, index) => (
-                <Fragment key={ index }>
-                    { item }
-                    <br />
-                </Fragment>
-            ));
-    };
-
     return (
         <Card className={ styles.subSectionCard }>
             <CardContent className={ styles.subSectionCardContent }>
-                <Grid height="100%" container spacing={ 2 } alignItems="stretch">
+                <Grid height="100%" container spacing={ 2 } sx={ { alignItems: "stretch" } }>
                     {
                         imageUrl
                             ? (
-                                <Grid size={ 4 }>
+                                <Grid size={ { md: 3, xs: 6 } }>
                                     <img className={ styles.subSectionCardImage } src={ imageUrl } alt="random" />
                                 </Grid>
                             ) : null
                     }
-                    <Stack justifyContent="center">
+                    <Grid container size={ { md: 9, xs: 6 } } direction="column" justifyContent="center" spacing={ 1 }>
                         <Typography
                             variant="body2"
                             className={
@@ -84,7 +69,7 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                                 isError ? styles.errorText : ""
                             }
                         >
-                            { createMainContentString(content) }
+                            { content }
                         </Typography>
                         {
                             caption
@@ -94,7 +79,8 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                                     </Typography>
                                 ) : null
                         }
-                    </Stack>
+                    </Grid>
+
                 </Grid>
             </CardContent>
         </Card>

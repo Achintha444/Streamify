@@ -1,10 +1,11 @@
-import { Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { FunctionComponent, ReactElement } from "react";
 import styles from "../styles/SubSectionCard.module.css";
+
 
 export interface SubSectionListCardItem {
     /**
@@ -15,6 +16,10 @@ export interface SubSectionListCardItem {
      * Title
      */
     title: string;
+    /**
+     * Subtitle
+     */
+    subtitle?: string;
     /**
      * image URL
      */
@@ -41,28 +46,39 @@ export const SubSectionListCard: FunctionComponent<SubSectionListCardProps> = (
     return (
         <Card className={ styles.subSectionCard }>
             <CardContent className={ styles.subSectionCardContent }>
-                <Stack spacing={ 1 } direction="column" justifyContent="center">
+                <Stack
+                    className={ styles.subSectionCardListContainer }
+                    spacing={ 1 }
+                    direction="column"
+                    justifyContent="center"
+                >
                     {
                         contentList.map((contentItem: SubSectionListCardItem) => (
-                            <Grid key={ contentItem.title } container spacing={ 2 } alignItems="center">
+                            <Stack direction="row" key={ contentItem.title } spacing={ 2 } alignItems="center">
                                 <Grid>
                                     <Typography variant="body2">
                                         { contentItem.number }
                                     </Typography>
                                 </Grid>
-                                <Grid>
-                                    <img
-                                        className={ styles.subSectionListCardImage }
-                                        src={ contentItem.imageUrl }
-                                        alt="random"
-                                    />
-                                </Grid>
-                                <Grid>
+                                <img
+                                    className={ styles.subSectionListCardImage }
+                                    src={ contentItem.imageUrl }
+                                    alt="random"
+                                />
+                                <Stack justifyContent="center">
                                     <Typography variant="body1">
                                         { contentItem.title }
                                     </Typography>
-                                </Grid>
-                            </Grid>
+                                    {
+                                        contentItem.subtitle
+                                            && (
+                                                <Typography variant="body2">
+                                                    { contentItem.subtitle }
+                                                </Typography>
+                                            )
+                                    }
+                                </Stack>
+                            </Stack>
                         ))
                     }
                 </Stack>
