@@ -61,6 +61,7 @@ export const UIIconMenuList: FunctionComponent<UIIconMenuListProps> = (
             style={ {
                 width: anchorElement.current ? `${anchorElement.current.offsetWidth}px` : "auto"
             } }
+            className={ styles["uiIconMenuPopper"] }
         >
             { ({ TransitionProps }) => (
                 <Grow { ...TransitionProps } >

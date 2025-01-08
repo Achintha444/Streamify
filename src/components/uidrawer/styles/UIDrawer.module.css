@@ -121,11 +121,13 @@
     white-space: nowrap;
 }
 
+.uiDrawerUserDetailsSelected
 .uiDrawerUserDetails:hover .uiDrawerUsername {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
 
+.uiDrawerUserDetailsSelected
 .uiDrawerUserDetails:hover .uiDrawerEmail {
     color: var(--color-primary) !important;
 }
@@ -158,6 +160,7 @@
         margin-right: 0px !important;
     }
 
+    .uiDrawerUserDetailsSelected,
     .uiDrawerUserDetails {
         justify-content: center;
         padding-left: 0px !important;
@@ -178,8 +181,9 @@
         display: none !important;
     }
 
+    .uiDrawerUserDetailsSelected,
     .uiDrawerUserDetails:hover {
-        margin: 12px 2px !important;
+        margin: 12px 4px !important;
     }
 }
 
