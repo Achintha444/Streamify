@@ -54,7 +54,13 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                                 </Grid>
                             ) : null
                     }
-                    <Grid container size={ { md: 9, xs: 6 } } direction="column" justifyContent="center" spacing={ 1 }>
+                    <Grid
+                        container
+                        size={ imageUrl ? { md: 9, xs: 6 } : undefined }
+                        direction="column"
+                        justifyContent="center"
+                        spacing={ 1 }
+                    >
                         <Typography
                             variant="body2"
                             className={

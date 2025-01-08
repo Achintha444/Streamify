@@ -1,5 +1,5 @@
-import { CircularProgress } from "@mui/material";
-import { Fragment } from "react/jsx-runtime";
+import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
 import { SubSectionCard } from "../../../pages/app/components/SubSectionCard";
 import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
 import { SubSectionListCard } from "../../../pages/app/components/SubSectionListCard";
@@ -35,17 +35,17 @@ export default function TopArtists() {
     }
 
     return (
-        <Fragment>
-            <SubSectionLayout
-                title="Top Artists"
-                subtitle={ rankingDate && `Top artists as of ${rankingDate}` }
-                displayItems={ [
-                    <SubSectionCard
-                        key="top-artist"
-                        title="Billboard Top Artist"
-                        content= { topArtists[0]?.name || "N/A" }
-                        imageUrl={ topArtists[0]?.image || "" }
-                    />,
+        <SubSectionLayout
+            title="Top Artists"
+            subtitle={ rankingDate && `Top artists as of ${rankingDate}` }
+            displayItems={ [
+                <SubSectionCard
+                    key="top-artist"
+                    title="Billboard Top Artist"
+                    content= { topArtists[0]?.name || "N/A" }
+                    imageUrl={ topArtists[0]?.image || "" }
+                />,
+                <Stack direction="row" spacing={ 2 }>
                     <SubSectionListCard
                         key="artist-list"
                         contentList={
@@ -53,13 +53,25 @@ export default function TopArtists() {
                                 .slice(1, 5)
                                 .map((artist: Artist, index: number) => ({
                                     imageUrl: artist?.image || "",
-                                    number: `${index + 2}`,  // Adding 2 because we start from the second artist
+                                    number: `${index + 2}`,
+                                    title: artist?.name || "N/A"
+                                }))
+                        }
+                    />,
+                    <SubSectionListCard
+                        key="artist-list"
+                        contentList={
+                            topArtists
+                                .slice(6, 10)
+                                .map((artist: Artist, index: number) => ({
+                                    imageUrl: artist?.image || "",
+                                    number: `${index + 6}`,
                                     title: artist?.name || "N/A"
                                 }))
                         }
                     />
-                ] }
-            />
-        </Fragment>
+                </Stack>
+            ] }
+        />
     );
 }

@@ -1,4 +1,5 @@
-import { CircularProgress } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
 import { Fragment } from "react/jsx-runtime";
 import { SubSectionCard } from "../../../pages/app/components/SubSectionCard";
 import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
@@ -47,19 +48,35 @@ export default function TopSongs() {
                         imageUrl={ topSongs[0]?.image || "" }
                         caption={ topSongs[0]?.artist || "N/A" }
                     />,
-                    <SubSectionListCard
-                        key="songs-list"
-                        contentList={
-                            topSongs
-                                .slice(1, 5)
-                                .map((song: Song, index: number) => ({
-                                    imageUrl: song?.image || "",
-                                    number: `${index + 2}`,
-                                    subtitle: song?.artist || "N/A",
-                                    title: song?.name || "N/A"
-                                }))
-                        }
-                    />
+                    <Stack direction="row" spacing={ 2 }>
+                        <SubSectionListCard
+                            key="songs-list"
+                            contentList={
+                                topSongs
+                                    .slice(1, 5)
+                                    .map((song: Song, index: number) => ({
+                                        imageUrl: song?.image || "",
+                                        number: `${index + 2}`,
+                                        subtitle: song?.artist || "N/A",
+                                        title: song?.name || "N/A"
+                                    }))
+                            }
+                        />,
+                        <SubSectionListCard
+                            key="songs-list"
+                            contentList={
+                                topSongs
+                                    .slice(6, 10)
+                                    .map((song: Song, index: number) => ({
+                                        imageUrl: song?.image || "",
+                                        number: `${index + 6}`,
+                                        subtitle: song?.artist || "N/A",
+                                        title: song?.name || "N/A"
+                                    }))
+                            }
+                        />
+                    </Stack>
+
                 ] }
             />
         </Fragment>
