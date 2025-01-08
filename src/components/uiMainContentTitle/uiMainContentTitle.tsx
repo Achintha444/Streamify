@@ -26,7 +26,7 @@ export const UiMainContentTitle: FunctionComponent<UiMainContentTitleProps> = (
 
     return (
         <Stack className={ styles["uiMainContentTitleContainer"] } spacing={ 0.5 }>
-            <Typography typography="h5">{ title }</Typography>
+            <Typography typography="h5" fontSize="24px" letterSpacing="0px">{ title }</Typography>
             <Typography typography="subtitle1">{ subTitle }</Typography>
         </Stack>
     );

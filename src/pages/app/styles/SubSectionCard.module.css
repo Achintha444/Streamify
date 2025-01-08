@@ -1,0 +1,42 @@
+.subSectionCardImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.subSectionListCardImage {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.subSectionCard {
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+}
+
+.subSectionCardContent {
+    height: auto;
+    width: 100%;
+}
+
+.errorText {
+    color: var(--color-danger) !important;
+}
+
+.positiveText {
+    color: var(--color-accept) !important;
+}
+
+.subSectionCardListContainer {
+    height: 100%;
+}
+
+@media screen and (max-width: 468px) {
+    .subSectionCard {
+        min-width: 270px;
+    }
+}

@@ -82,6 +82,13 @@ function LoginPageLayout() {
                                         troubleshooting, feel free to contact support at
                                         <a href={ links.streamifyPortfolio } target="_blank">admin@streamify.com</a>.
                                     </Typography>
+                                    <Typography variant="subtitle2" className="login-content-subtitle">
+                                        <i>
+                                            <b>Note:</b> Since this is a demo application, you can use the following
+                                            credentials to log in. Use <a>"test@streamify.com"</a> as the username
+                                            and <a>"Test@123"</a> as the password.
+                                        </i>
+                                    </Typography>
                                 </Stack>
                             </Stack>
                             <Typography variant="caption" className="login-content-terms">

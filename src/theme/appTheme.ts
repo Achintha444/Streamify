@@ -88,6 +88,28 @@ export const appTheme = responsiveFontSizes(createTheme({
                 }
             ]
         },
+        MuiCard: {
+            defaultProps: {
+                variant: "outlined"
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: "16px",
+                    borderColor: Colors.colorWhiteTernary,
+                    backdropFilter: "blur(24px)",
+                    boxShadow: "0 4px 8px 0 rgba(75, 109, 155, 0.04)",
+                    background: `linear-gradient(to right, 
+                        ${ Colors.colorWhitePrimary }, ${ Colors.colorWhiteSecondary })`
+                }
+            }
+        },
+        MuiCardContent: {
+            styleOverrides: {
+                root: {
+                    padding: "16px !important"
+                }
+            }
+        },
         MuiDrawer: {
             defaultProps: {
                 variant: "permanent"
@@ -189,6 +211,10 @@ export const appTheme = responsiveFontSizes(createTheme({
             fontSize: "12px",
             color: Colors.colorTextSecondary
         },
+        h3: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorTextPrimary
+        },
         h4: {
             fontFamily: Font.secondaryFontFamily
         },
@@ -196,6 +222,11 @@ export const appTheme = responsiveFontSizes(createTheme({
             fontFamily: Font.defaultFontFamily,
             color: Colors.colorPrimary,
             fontWeight: "bold"
+        },
+        h6: {
+            fontFamily: Font.defaultFontFamily,
+            color: Colors.colorPrimary,
+            fontWeight: "semibold"
         },
         caption: {
             fontFamily: Font.defaultFontFamily,

@@ -9,9 +9,9 @@ import { SongsResponse } from "../models/Song";
  */
 export const getTopSongs = async (): Promise<SongsResponse> => {
     return APIClient.getInstance()
-        .get<SongsResponse>(Endpoints.topArtists)
+        .get<SongsResponse>(Endpoints.topSongs)
         .then((response) => {
-            return response.data as unknown as SongsResponse;
+            return response as unknown as SongsResponse;
         })
         .catch((error) => {
             throw error;
