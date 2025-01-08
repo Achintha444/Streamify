@@ -26,6 +26,10 @@ interface SubSectionCardProps {
      * is error text
      */
     isError?: boolean | undefined;
+    /**
+     * is positive text
+     */
+    isPositive?: boolean | undefined;
 }
 
 /**
@@ -39,8 +43,15 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
         content,
         imageUrl,
         caption,
-        isError
+        isError,
+        isPositive
     } = props;
+
+    /**
+     * Get the text class name based on the error and positive state
+     */
+    const getTextClassName = (): string =>
+        `${isError ? styles.errorText : ""} ${isPositive ? styles.positiveText : ""}`;
 
     return (
         <Card className={ styles.subSectionCard }>
@@ -63,17 +74,13 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                     >
                         <Typography
                             variant="body2"
-                            className={
-                                isError ? styles.errorText : ""
-                            }
+                            className={ getTextClassName() }
                         >
                             { title }
                         </Typography>
                         <Typography
                             variant="h3"
-                            className={
-                                isError ? styles.errorText : ""
-                            }
+                            className={ getTextClassName() }
                         >
                             { content }
                         </Typography>

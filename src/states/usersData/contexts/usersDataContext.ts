@@ -8,7 +8,7 @@ export interface UsersDataContextProps {
     /**
      * Users data.
      */
-    usersData: UsersData;
+    usersData: UsersData | null;
     /**
      * Flag indicating if an error occurred while loading the users data.
      */

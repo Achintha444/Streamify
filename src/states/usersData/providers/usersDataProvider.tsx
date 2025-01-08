@@ -38,7 +38,7 @@ const UsersDataProvider: FunctionComponent<UsersDataProviderProps> = (
         <UsersDataContext.Provider
             value={ {
                 isUsersDataError: isUsersDataError,
-                usersData: usersData!
+                usersData: usersData
             } }
         >
             { children }

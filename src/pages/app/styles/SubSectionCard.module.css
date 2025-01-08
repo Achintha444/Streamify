@@ -27,6 +27,10 @@
     color: var(--color-danger) !important;
 }
 
+.positiveText {
+    color: var(--color-accept) !important;
+}
+
 .subSectionCardListContainer {
     height: 100%;
 }

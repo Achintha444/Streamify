@@ -1,13 +1,15 @@
 import BillboardDataProvider from "../../../states/billboardData/providers/billboardDataProvider";
+import RevenueDataProvider from "../../../states/revenueData/providers/revenueDataProvider";
 import UsersDataProvider from "../../../states/usersData/providers/usersDataProvider";
 import OverviewLayout from "../layout/OverviewLayout";
 
-// TODO: Create a local-data service to fetch the data
 export default function OverviewPage() {
     return (
         <BillboardDataProvider>
             <UsersDataProvider>
-                <OverviewLayout />
+                <RevenueDataProvider>
+                    <OverviewLayout />
+                </RevenueDataProvider>
             </UsersDataProvider>
         </BillboardDataProvider>
     );

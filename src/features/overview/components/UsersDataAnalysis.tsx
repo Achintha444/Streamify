@@ -4,7 +4,7 @@ import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout
 import useUsersData from "../../../states/usersData/hooks/useUsersData";
 
 /**
- * Component to display the top artists section
+ * Component to display the users data analysis section
  */
 export default function UsersDataAnalyst() {
     const {
