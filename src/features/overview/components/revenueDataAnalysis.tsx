@@ -20,7 +20,7 @@ export default function RevenueDataAnalysis() {
     return (
         <Fragment>
             <SubSectionLayout
-                title="Users Data Overview"
+                title="Revenue Data Overview"
                 displayItems={ [
                     <SubSectionCard
                         key="total-revenue"
