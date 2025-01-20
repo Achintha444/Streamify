@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import UsersDataAnalyst from "../components/UsersDataAnalysis";
+import UsersDataAnalyst from "../components/usersDataAnalysis";
 
 export default function UsersLayout() {
 
