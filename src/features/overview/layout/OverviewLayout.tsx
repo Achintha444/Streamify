@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import RevenueDataAnalysis from "../components/revenueDataAnalysis";
 import TopArtists from "../components/TopArtists";
 import TopSongs from "../components/TopSongs";
-import UsersDataAnalyst from "../components/UsersDataAnalysis";
+import UsersDataAnalyst from "../components/usersDataAnalysis";
 
 export default function OverviewLayout() {
 
