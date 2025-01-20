@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import { SubSectionCard } from "../../../pages/app/components/SubSectionCard";
 import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
 import useRevenueData from "../../../states/revenueData/hooks/useRevenueData";
@@ -18,24 +17,22 @@ export default function RevenueDataAnalysis() {
     }
 
     return (
-        <Fragment>
-            <SubSectionLayout
-                title="Revenue Data Overview"
-                displayItems={ [
-                    <SubSectionCard
-                        key="total-revenue"
-                        title="Total Revenue"
-                        content= { revenueData?.totalRevenue.toLocaleString() || "N/A" }
-                    />,
-                    <SubSectionCard
-                        key="compared-to-last-month"
-                        title="Compared to Last Month"
-                        content= { revenueData?.comparedToLastMonth || "N/A" }
-                        isError={ revenueData?.comparedToLastMonth.includes("-") }
-                        isPositive={ revenueData?.comparedToLastMonth.includes("+") }
-                    />
-                ] }
-            />
-        </Fragment>
+        <SubSectionLayout
+            title="Revenue Data Overview"
+            displayItems={ [
+                <SubSectionCard
+                    key="total-revenue"
+                    title="Total Revenue"
+                    content= { revenueData?.totalRevenue.toLocaleString() || "N/A" }
+                />,
+                <SubSectionCard
+                    key="compared-to-last-month"
+                    title="Compared to Last Month"
+                    content= { revenueData?.comparedToLastMonth || "N/A" }
+                    isError={ revenueData?.comparedToLastMonth.includes("-") }
+                    isPositive={ revenueData?.comparedToLastMonth.includes("+") }
+                />
+            ] }
+        />
     );
 }
