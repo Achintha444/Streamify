@@ -1,9 +1,5 @@
-import Stack from "@mui/material/Stack";
+import TopSongsList from "../components/topSongsList";
 
 export default function SongsLayout() {
-    return (
-        <Stack spacing={ 4 }>
-            
-        </Stack>
-    );
+    return <TopSongsList />;
 }
