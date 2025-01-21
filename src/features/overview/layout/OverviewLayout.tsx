@@ -5,7 +5,6 @@ import TopSongs from "../components/TopSongs";
 import UsersDataAnalyst from "../components/usersDataAnalysis";
 
 export default function OverviewLayout() {
-
     return (
         <Stack spacing={ 4 }>
             <UsersDataAnalyst />

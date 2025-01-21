@@ -1,5 +1,10 @@
+import BillboardDataProvider from "../../../states/billboardData/providers/billboardDataProvider";
+import ArtistsLayout from "../layout/artistsLayout";
+
 export default function ArtistsPage() {
     return (
-        <div>Under Construction</div>
+        <BillboardDataProvider>
+            <ArtistsLayout />
+        </BillboardDataProvider>
     );
 }
