@@ -1,9 +1,5 @@
-import Stack from "@mui/material/Stack";
+import TopArtistsList from "../components/topArtistsList";
 
 export default function ArtistsLayout() {
-    return (
-        <Stack spacing={ 4 }>
-            
-        </Stack>
-    );
+    return <TopArtistsList />;
 }
