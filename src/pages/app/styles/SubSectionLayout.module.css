@@ -20,6 +20,10 @@
     width: 100%;
 }
 
+.subSectionGrid {
+    width: 100%;
+}
+
 @media screen and (max-width: 468px) {
     .subSectionLayoutContent {
         width: 96vw;
