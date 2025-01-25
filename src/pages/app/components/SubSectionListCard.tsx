@@ -4,9 +4,12 @@ import Grid from "@mui/material/Grid2";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { FunctionComponent, ReactElement } from "react";
+import { addLeadingZero } from "../../../utils/utility";
 import styles from "../styles/SubSectionCard.module.css";
 
-
+/**
+ * Sub section list card item
+ */
 export interface SubSectionListCardItem {
     /**
      * Number
@@ -48,7 +51,7 @@ export const SubSectionListCard: FunctionComponent<SubSectionListCardProps> = (
             <CardContent className={ styles.subSectionCardContent }>
                 <Stack
                     className={ styles.subSectionCardListContainer }
-                    spacing={ 1 }
+                    spacing={ 2 }
                     direction="column"
                     justifyContent="center"
                 >
@@ -57,7 +60,7 @@ export const SubSectionListCard: FunctionComponent<SubSectionListCardProps> = (
                             <Stack direction="row" key={ contentItem.title } spacing={ 2 } alignItems="center">
                                 <Grid>
                                     <Typography variant="body2">
-                                        { contentItem.number }
+                                        { addLeadingZero(contentItem.number) }
                                     </Typography>
                                 </Grid>
                                 <img

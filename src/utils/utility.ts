@@ -11,3 +11,9 @@ export const isScreenMobileOrSmall = () =>
  */
 export const isScreenTabletOrSmaller = () =>
     window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
+
+/**
+ * Add leading zeros to a number with a single digit
+ */
+export const addLeadingZero = (number: string): string =>
+    number.toString().padStart(2, "0");
