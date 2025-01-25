@@ -35,17 +35,18 @@ export const SubSectionGrid: FunctionComponent<SubSectionGridProps> = (
         <Stack
             spacing={ 2 }
             direction="column"
+            className={ styles.subSectionGrid }
         >
             <SubSectionTitle title={ title } subtitle={ subtitle } />
 
             <Grid container spacing={ 2 } className={ styles.subSectionGrid }>
-                <Grid size="grow">
+                <Grid size={ { md: 6, sm: 12, xs: 12 } }>
                     <Stack spacing={ 2 }>
                         { displayItems[0] }
                         { displayItems[1] }
                     </Stack>
                 </Grid>
-                <Grid size="grow">
+                <Grid size={ { md: 6, sm: 12, xs: 12 } }>
                     { displayItems[2] }
                 </Grid>
             </Grid>

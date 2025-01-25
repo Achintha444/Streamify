@@ -28,4 +28,9 @@
     .subSectionLayoutContent {
         width: 96vw;
     }
+
+    .subSectionGrid {
+        width: 96vw;
+        min-width: 100vw;
+    }
 }

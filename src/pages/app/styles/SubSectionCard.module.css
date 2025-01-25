@@ -1,6 +1,6 @@
 .subSectionCardImage {
+    max-width: 100px;
     height: 100%;
-    width: 100%;
     object-fit: cover;
     border-radius: 12px;
 }
@@ -14,7 +14,7 @@
 
 .subSectionCard {
     width: 100%;
-    min-width: 300px;
+    min-width: 300px !important;
     display: flex;
 }
 
