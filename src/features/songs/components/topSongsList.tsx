@@ -1,14 +1,11 @@
-import CircularProgress from "@mui/material/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import { SubSectionCard } from "../../../pages/app/components/SubSectionCard";
-import { SubSectionLayout } from "../../../pages/app/components/SubSectionLayout";
+import { SubSectionGrid } from "../../../pages/app/components/subSectionGrid";
 import { SubSectionListCard } from "../../../pages/app/components/SubSectionListCard";
 import useBillboardData from "../../../states/billboardData/hooks/useBillboardData";
 import { Song } from "../../../states/billboardData/models/Song";
 
-/**
- * Component to display the top songs section
- */
-export default function TopSongs() {
+export default function TopSongsList() {
     const {
         isTopSongsLoading,
         isTopSongsError,
@@ -34,13 +31,13 @@ export default function TopSongs() {
     }
 
     return (
-        <SubSectionLayout
-            title="Top Songs"
+        <SubSectionGrid
+            title="Top 20 Songs"
             subtitle={ songsRankingDate && `Top songs as of ${songsRankingDate}` }
             displayItems={ [
                 <SubSectionCard
                     key="top-songs"
-                    title="Billboard Top Songs"
+                    title="Billboard Top Song"
                     content={ topSongs[0]?.name || "N/A" }
                     imageUrl={ topSongs[0]?.image || "" }
                     caption={ topSongs[0]?.artist || "N/A" }
@@ -49,7 +46,7 @@ export default function TopSongs() {
                     key="songs-list"
                     contentList={
                         topSongs
-                            .slice(1, 5)
+                            .slice(1, 10)
                             .map((song: Song, index: number) => ({
                                 imageUrl: song?.image || "",
                                 number: `${index + 2}`,
@@ -62,16 +59,15 @@ export default function TopSongs() {
                     key="songs-list"
                     contentList={
                         topSongs
-                            .slice(6, 10)
+                            .slice(11, 23)
                             .map((song: Song, index: number) => ({
                                 imageUrl: song?.image || "",
-                                number: `${index + 6}`,
+                                number: `${index + 11}`,
                                 subtitle: song?.artist || "N/A",
                                 title: song?.name || "N/A"
                             }))
                     }
                 />
-
             ] }
         />
     );

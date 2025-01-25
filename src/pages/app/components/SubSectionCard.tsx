@@ -60,14 +60,14 @@ export const SubSectionCard: FunctionComponent<SubSectionCardProps> = (
                     {
                         imageUrl
                             ? (
-                                <Grid size={ { md: 3, xs: 6 } }>
+                                <Grid>
                                     <img className={ styles.subSectionCardImage } src={ imageUrl } alt="random" />
                                 </Grid>
                             ) : null
                     }
                     <Grid
                         container
-                        size={ imageUrl ? { md: 9, xs: 6 } : undefined }
+                        size={ imageUrl ? "grow" : undefined }
                         direction="column"
                         justifyContent="center"
                         spacing={ 1 }

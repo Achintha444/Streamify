@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { Fragment, FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
+import { SubSectionTitle } from "./subSectionTitle";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../../utils/utility";
 import styles from "../styles/SubSectionLayout.module.css";
 
@@ -80,18 +80,7 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = (
             className={ styles.subSectionLayout }
             ref={ containerRef }
         >
-            <Stack direction="column" >
-                { title && title.length > 0 && (
-                    <Typography variant="h6" className={ styles.subSectionLayoutTitle }>
-                        { title }
-                    </Typography>
-                ) }
-                { subtitle && subtitle.length > 0 && (
-                    <Typography variant="body2" className={ styles.subSectionLayoutTitle }>
-                        { subtitle }
-                    </Typography>
-                ) }
-            </Stack>
+            <SubSectionTitle title={ title } subtitle={ subtitle } />
 
             <motion.div
                 drag="x"
