@@ -51,6 +51,8 @@ Currently I have mocked up the login interface. The rest of the interfaces will 
 
 ![login-prototype-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-5.webp)
 ![overview-prototype-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-7.webp)
+![overview-prototype-2](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-8.webp)
+![overview-prototype-3](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-9.webp)
 
 ### Development
 As mentioned above, prototyping and development will be done in parallel. For the development part, I am using React.js and Material-UI. The dashboard is built using React.js and Material-UI. This site will be hosted in [Vercel](https://streamify-gilt.vercel.app/).
