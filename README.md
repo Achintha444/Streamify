@@ -47,8 +47,6 @@ After that, I started designing the wireframes for the dashboard. The wireframes
 ### Prototyping
 This part of the project is still in progress. But to practice agile methodologies I decided to develop each interface that I designed in the wireframes. For prototyping I used Figma, mainly due to its simplicity and ease of use. It allows me to quickly create interactive prototypes and to test the user experience.
 
-Currently I have mocked up the login interface. The rest of the interfaces will be mocked up in the next steps.
-
 ![login-prototype-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-5.webp)
 ![overview-prototype-1](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-7.webp)
 ![overview-prototype-2](https://github.com/Achintha444/Streamify/blob/main/readme-assets/streamify-8.webp)
