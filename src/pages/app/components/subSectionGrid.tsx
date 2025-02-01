@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid2";
 import Stack from "@mui/material/Stack";
 import { FunctionComponent, ReactElement } from "react";
-import { SubSectionTitle } from "./subSectionTitle";
+import { SubSection } from "./subSection";
 import styles from "../styles/SubSectionLayout.module.css";
 
 /**
@@ -32,24 +32,24 @@ export const SubSectionGrid: FunctionComponent<SubSectionGridProps> = (
     } = props;
 
     return (
-        <Stack
-            spacing={ 2 }
-            direction="column"
-            className={ styles.subSectionGrid }
-        >
-            <SubSectionTitle title={ title } subtitle={ subtitle } />
-
-            <Grid container spacing={ 2 } className={ styles.subSectionGrid }>
-                <Grid size={ { md: 6, sm: 12, xs: 12 } }>
-                    <Stack spacing={ 2 }>
-                        { displayItems[0] }
-                        { displayItems[1] }
-                    </Stack>
-                </Grid>
-                <Grid size={ { md: 6, sm: 12, xs: 12 } }>
-                    { displayItems[2] }
-                </Grid>
-            </Grid>
-        </Stack>
+        <SubSection
+            title={ title }
+            subtitle={ subtitle }
+            content={
+                (
+                    <Grid container spacing={ 2 } className={ styles.subSectionGrid }>
+                        <Grid size={ { md: 6, sm: 12, xs: 12 } }>
+                            <Stack spacing={ 2 }>
+                                { displayItems[0] }
+                                { displayItems[1] }
+                            </Stack>
+                        </Grid>
+                        <Grid size={ { md: 6, sm: 12, xs: 12 } }>
+                            { displayItems[2] }
+                        </Grid>
+                    </Grid>
+                )
+            }
+        />
     );
 };

@@ -1,4 +1,5 @@
 import { Context, createContext } from "react";
+import { UserAnalyticsData } from "../models/userAnalyticsData";
 import { UsersData } from "../models/UsersData";
 
 /**
@@ -13,6 +14,14 @@ export interface UsersDataContextProps {
      * Flag indicating if an error occurred while loading the users data.
      */
     isUsersDataError: boolean;
+    /**
+     * User analytics data.
+     */
+    userAnalyticsData: UserAnalyticsData | null;
+    /**
+     * Flag indicating if an error occurred while loading the user analytics data.
+     */
+    isUserAnalyticsDataError: boolean;
 }
 
 /**
