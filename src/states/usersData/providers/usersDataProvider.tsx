@@ -1,6 +1,8 @@
 import { FunctionComponent, PropsWithChildren, ReactElement, useMemo, useState } from "react";
 import usersDataJson from "../../../assets/data/userData.json";
+import userAnalyticsJson from "../../../assets/data/usersAnalytics.json";
 import UsersDataContext from "../contexts/usersDataContext";
+import { UserAnalyticsData } from "../models/userAnalyticsData";
 import { UsersData } from "../models/UsersData";
 
 /**
@@ -21,7 +23,10 @@ const UsersDataProvider: FunctionComponent<UsersDataProviderProps> = (
 
     const [ isUsersDataError, setIsUsersDataError ] = useState<boolean>(false);
     const [ usersData, setUsersData ] = useState<UsersData | null>(null);
+    const [ isUserAnalyticsDataError, setIsUserAnalyticsDataError ] = useState<boolean>(false);
+    const [ userAnalyticsData, setUserAnalyticsData ] = useState<UserAnalyticsData | null>(null);
 
+    // Load the user data
     useMemo(() => {
         try {
             if (usersDataJson) {
@@ -34,10 +39,25 @@ const UsersDataProvider: FunctionComponent<UsersDataProviderProps> = (
         }
     }, [ usersDataJson ]);
 
+    // Load the user analytics data
+    useMemo(() => {
+        try {
+            if (userAnalyticsJson) {
+                setUserAnalyticsData(userAnalyticsJson);
+                setIsUserAnalyticsDataError(false);
+            }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            setIsUserAnalyticsDataError(true);
+        }
+    }, [ userAnalyticsJson ]);
+
     return (
         <UsersDataContext.Provider
             value={ {
+                isUserAnalyticsDataError: isUserAnalyticsDataError,
                 isUsersDataError: isUsersDataError,
+                userAnalyticsData: userAnalyticsData,
                 usersData: usersData
             } }
         >

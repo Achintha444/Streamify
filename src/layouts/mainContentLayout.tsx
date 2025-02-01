@@ -1,6 +1,7 @@
 import Grid from "@mui/material/Grid2/Grid2";
 import Stack from "@mui/material/Stack";
-import { FunctionComponent, ReactElement, ReactNode } from "react";
+import { FunctionComponent, ReactElement, ReactNode, useEffect, useRef } from "react";
+import { useLocation } from "react-router";
 import { AppContentLayout } from "./AppContentLayout";
 import styles from "./styles/MainLayout.module.css";
 import { UiMainContentTitle } from "../components/uiMainContentTitle/uiMainContentTitle";
@@ -37,6 +38,17 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
         content
     } = props;
 
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const location = useLocation();  // Get location object
+
+    useEffect(() => {
+        if (containerRef.current) {
+            containerRef.current.scrollTop = 0;
+        }
+    }, [ location.key ]);
+
     return (
         !isScreenMobileOrSmall()
             ? (
@@ -55,6 +67,7 @@ export const MainContentLayout: FunctionComponent<MainContentLayoutProps> = (
                         direction="column"
                         container
                         size="grow"
+                        ref = { containerRef }
                     >
                         <Grid size="auto">
                             <UiMainContentTitle title={ title } subTitle={ subTitle } />

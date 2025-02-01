@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import { motion } from "framer-motion";
 import { Fragment, FunctionComponent, ReactElement, useEffect, useRef, useState } from "react";
-import { SubSectionTitle } from "./subSectionTitle";
+import { SubSection } from "./subSection";
 import { isScreenMobileOrSmall, isScreenTabletOrSmaller } from "../../../utils/utility";
 import styles from "../styles/SubSectionLayout.module.css";
 
@@ -74,30 +74,29 @@ export const SubSectionLayout: FunctionComponent<SubSectionLayoutProps> = (
     }, [ displayItems ]);
 
     return (
-        <Stack
-            spacing={ 2 }
-            direction="column"
-            className={ styles.subSectionLayout }
-            ref={ containerRef }
-        >
-            <SubSectionTitle title={ title } subtitle={ subtitle } />
-
-            <motion.div
-                drag="x"
-                dragConstraints={ dragConstraints }
-                className={ styles.subSectionLayoutContainer }
-            >
-                <Stack
-                    direction="row"
-                    spacing={ 2 }
-                    ref={ contentRef }
-                    className={ styles.subSectionLayoutContent }
+        <SubSection
+            title={ title }
+            subtitle={ subtitle }
+            containerRef={ containerRef }
+            content={ (
+                <motion.div
+                    drag="x"
+                    dragConstraints={ dragConstraints }
+                    className={ styles.subSectionLayoutContainer }
                 >
-                    { displayItems.map((item, index) => (
-                        <Fragment key={ index }>{ item }</Fragment>
-                    )) }
-                </Stack>
-            </motion.div>
-        </Stack>
+                    <Stack
+                        direction="row"
+                        spacing={ 2 }
+                        ref={ contentRef }
+                        className={ styles.subSectionLayoutContent }
+                    >
+                        { displayItems.map((item, index) => (
+                            <Fragment key={ index }>{ item }</Fragment>
+                        )) }
+                    </Stack>
+                </motion.div>
+            ) }
+
+        />
     );
 };
