@@ -1,28 +1,10 @@
 import {
-    CategoryScale,
-    Chart as ChartJS,
-    ChartOptions,
-    Legend,
-    LineElement,
-    LinearScale,
-    PointElement,
-    Title,
-    Tooltip
+    ChartOptions
 } from "chart.js";
 import { FunctionComponent, ReactElement } from "react";
-import { ChartData } from "./chartData";
 import SubSectionLineChart from "../../../pages/app/components/subSectionLineChart";
 import useUsersData from "../../../states/usersData/hooks/useUsersData";
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-);
+import { ChartData } from "../../../states/usersData/models/chartData";
 
 export const UserAnalyticsChart: FunctionComponent = (): ReactElement => {
     const {
