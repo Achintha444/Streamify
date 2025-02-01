@@ -48,7 +48,6 @@ export const UserAnalyticsChart: FunctionComponent = (): ReactElement => {
     return (
         <SubSectionLineChart
             title="Users Data Analytics"
-            subtitle="Analytics Overview"
             chartData={ userAnalyticsData as ChartData }
             chartOptions={ chartOptions }
         />

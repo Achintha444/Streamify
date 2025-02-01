@@ -35,7 +35,7 @@ interface SubSectionLineChartProps {
     /**
      * Subtitle of the sub section
      */
-    subtitle: string;
+    subtitle?: string | undefined;
     /**
      * Chart data to display
      */
