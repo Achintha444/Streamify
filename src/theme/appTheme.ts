@@ -1,24 +1,8 @@
 /* eslint-disable sort-keys */
 import { CSSObject, Theme, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { ThemeColors } from "./themeColors";
+import { ThemeFonts } from "./themeFonts";
 import { images } from "../assets/images";
-
-const Font = {
-    defaultFontFamily: "Open Sans",
-    secondaryFontFamily: "Pacifico"
-};
-
-const Colors = {
-    colorPrimary: "#4B6D9B",
-    colorTextPrimary: "#212933",
-    colorTextSecondary: "#6F7A88",
-    colorWhitePrimary: "#FDFDFF",
-    colorWhiteSecondary: "#F6F8FF",
-    colorWhitePrimaryForCard: "#FDFDFF47",
-    colorWhiteSecondaryForCard: "#F6F8FF47",
-    colorWhiteTernary: "#C2D1FF",
-    colorWhiteTernaryForCard: "#C2D1FF70",
-    colorWhiteTernaryBackdrop: ""
-};
 
 const openedMixin = (theme: Theme): CSSObject => ({
     overflowX: "hidden",
@@ -55,7 +39,7 @@ export const appTheme = responsiveFontSizes(createTheme({
             styleOverrides: {
                 root: {
                     backdropFilter: "blur(4px)",
-                    background: Colors.colorWhiteTernary,
+                    background: ThemeColors.colorWhiteTernary,
                     opacity: "0.4 !important",
                     width: "100% !important"
                 }
@@ -80,13 +64,13 @@ export const appTheme = responsiveFontSizes(createTheme({
                 {
                     props: { variant: "contained" },
                     style: {
-                        color: Colors.colorWhitePrimary
+                        color: ThemeColors.colorWhitePrimary
                     }
                 },
                 {
                     props: { variant: "outlined" },
                     style: {
-                        borderColor: Colors.colorPrimary
+                        borderColor: ThemeColors.colorPrimary
                     }
                 }
             ]
@@ -98,10 +82,10 @@ export const appTheme = responsiveFontSizes(createTheme({
             styleOverrides: {
                 root: {
                     borderRadius: "16px",
-                    borderColor: Colors.colorWhiteTernaryForCard,
+                    borderColor: ThemeColors.colorWhiteTernaryForCard,
                     backdropFilter: "blur(24px)",
                     boxShadow: "0px 12px 12px 4px rgba(75, 109, 155, 0.04)",
-                    background: Colors.colorWhiteSecondaryForCard
+                    background: ThemeColors.colorWhiteSecondaryForCard
                 }
             }
         },
@@ -124,7 +108,7 @@ export const appTheme = responsiveFontSizes(createTheme({
                     maxWidth: "282px"
                 },
                 paper: {
-                    border: `1px solid ${Colors.colorWhiteTernary}`,
+                    border: `1px solid ${ThemeColors.colorWhiteTernary}`,
                     borderRadius: "24px",
                     height: "94vh",
                     margin: "24px",
@@ -158,9 +142,9 @@ export const appTheme = responsiveFontSizes(createTheme({
         MuiIconButton: {
             styleOverrides: {
                 root: {
-                    color: Colors.colorPrimary,
-                    backgroundColor: Colors.colorWhiteSecondary,
-                    border: `1px solid ${Colors.colorWhiteTernary}`,
+                    color: ThemeColors.colorPrimary,
+                    backgroundColor: ThemeColors.colorWhiteSecondary,
+                    border: `1px solid ${ThemeColors.colorWhiteTernary}`,
                     borderRadius: "8px"
                 }
             }
@@ -168,72 +152,72 @@ export const appTheme = responsiveFontSizes(createTheme({
         MuiListItemIcon: {
             styleOverrides: {
                 root: {
-                    color: Colors.colorTextPrimary
+                    color: ThemeColors.colorTextPrimary
                 }
             }
         }
     },
     palette: {
         primary: {
-            main: Colors.colorPrimary,
+            main: ThemeColors.colorPrimary,
             contrastText: "#242424"
         },
         text: {
-            primary: Colors.colorTextPrimary,
-            secondary: Colors.colorTextSecondary
+            primary: ThemeColors.colorTextPrimary,
+            secondary: ThemeColors.colorTextSecondary
         },
-        divider: Colors.colorTextPrimary,
+        divider: ThemeColors.colorTextPrimary,
         background: {
-            default: Colors.colorWhitePrimary,
-            paper: Colors.colorWhitePrimary
+            default: ThemeColors.colorWhitePrimary,
+            paper: ThemeColors.colorWhitePrimary
 
         }
     },
     typography: {
         body1: {
-            fontFamily: Font.defaultFontFamily,
-            color: Colors.colorTextPrimary
+            fontFamily: ThemeFonts.defaultFontFamily,
+            color: ThemeColors.colorTextPrimary
         },
         body2: {
-            fontFamily: Font.defaultFontFamily,
-            color: Colors.colorTextSecondary
+            fontFamily: ThemeFonts.defaultFontFamily,
+            color: ThemeColors.colorTextSecondary
         },
         button: {
-            fontFamily: Font.defaultFontFamily
+            fontFamily: ThemeFonts.defaultFontFamily
         },
         subtitle1: {
-            fontFamily: Font.defaultFontFamily,
+            fontFamily: ThemeFonts.defaultFontFamily,
             fontWeight: "500",
             fontSize: "14px",
-            color: Colors.colorTextSecondary
+            color: ThemeColors.colorTextSecondary
         },
         subtitle2: {
-            fontFamily: Font.defaultFontFamily,
+            fontFamily: ThemeFonts.defaultFontFamily,
             fontWeight: "400",
             fontSize: "12px",
-            color: Colors.colorTextSecondary
+            color: ThemeColors.colorTextSecondary
         },
         h3: {
-            fontFamily: Font.defaultFontFamily,
-            color: Colors.colorTextPrimary
+            fontFamily: ThemeFonts.defaultFontFamily,
+            color: ThemeColors.colorTextPrimary
         },
         h4: {
-            fontFamily: Font.secondaryFontFamily
+            fontFamily: ThemeFonts.secondaryFontFamily
         },
         h5: {
-            fontFamily: Font.defaultFontFamily,
-            color: Colors.colorPrimary,
+            fontFamily: ThemeFonts.defaultFontFamily,
+            color: ThemeColors.colorPrimary,
             fontWeight: "bold"
         },
         h6: {
-            fontFamily: Font.defaultFontFamily,
-            color: Colors.colorPrimary,
+            fontFamily: ThemeFonts.defaultFontFamily,
+            color: ThemeColors.colorPrimary,
             fontWeight: "semibold"
         },
         caption: {
-            fontFamily: Font.defaultFontFamily,
+            fontFamily: ThemeFonts.defaultFontFamily,
             fontSize: "12px",
-            color: Colors.colorTextSecondary
+            color: ThemeColors.colorTextSecondary
         }
     }
 }));

@@ -4,7 +4,7 @@
       {
         "label": "Monthly Active Users",
         "data": [12000, 13500, 14200, 14800, 15500, 16300, 17000, 16800, 17500, 18200, 19000, 20500],
-        "borderColor": "rgb(75, 192, 192)",
+        "borderColor": "#b3c9e8",
         "tension": 0.4,
         "yAxisID": "y",
         "axisLabel": "Active Users"
@@ -12,7 +12,7 @@
       {
         "label": "Churn Rate (%)",
         "data": [5.2, 4.8, 4.5, 4.2, 3.9, 3.7, 3.5, 3.8, 3.6, 3.3, 3.0, 2.8],
-        "borderColor": "rgb(255, 99, 132)",
+        "borderColor": "#d79397",
         "tension": 0.4,
         "yAxisID": "y1",
         "axisLabel": "Churn Rate (%)"

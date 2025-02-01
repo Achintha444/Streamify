@@ -15,6 +15,7 @@ export const AppContentLayout: FunctionComponent<AppContentLayoutProps> = (
         children
     } = props;
 
+
     return (
         <Container
             className={ styles.appContentLayout }
