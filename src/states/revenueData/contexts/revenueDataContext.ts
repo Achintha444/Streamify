@@ -1,4 +1,5 @@
 import { Context, createContext } from "react";
+import { RevenueAnalyticsData } from "../models/revenueAnalyticsData";
 import { RevenueData } from "../models/revenueData";
 
 /**
@@ -13,6 +14,14 @@ export interface RevenueDataContextProps {
      * Flag indicating if an error occurred while loading the revenue data.
      */
     isRevenueDataError: boolean;
+    /**
+     * Revenue analytics data.
+     */
+    revenueAnalyticsData: RevenueAnalyticsData | null;
+    /**
+     * Flag indicating if an error occurred while loading the revenue analytics data.
+     */
+    isRevenueAnalyticsDataError: boolean;
 }
 
 /**

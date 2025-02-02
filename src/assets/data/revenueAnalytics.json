@@ -1,0 +1,27 @@
+{
+    "labels": ["Q1", "Q2", "Q3", "Q4"],
+    "datasets": [
+      {
+        "label": "Revenue",
+        "data": [45000, 52000, 48000, 61000],
+        "borderColor": "rgb(54, 162, 235)",
+        "yAxisID": "y",
+        "axisLabel": "Revenue (USD)"
+      },
+      {
+        "label": "Growth Rate",
+        "data": [5.2, 7.1, 3.8, 9.4],
+        "borderColor": "rgb(255, 159, 64)",
+        "yAxisID": "y1",
+        "axisLabel": "Growth Rate (%)"
+      }
+    ],
+    "scales": {
+      "y": {
+        "title": "Revenue (USD)"
+      },
+      "y1": {
+        "title": "Growth Rate (%)"
+      }
+    }
+}
