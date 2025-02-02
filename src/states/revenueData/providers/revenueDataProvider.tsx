@@ -1,4 +1,5 @@
 import { FunctionComponent, PropsWithChildren, ReactElement, useMemo, useState } from "react";
+import revenueAnalyticsDataJson from "../../../assets/data/revenueAnalytics.json";
 import revenueDataJson from "../../../assets/data/revenueData.json";
 import RevenueDataContext from "../contexts/revenueDataContext";
 import { RevenueAnalyticsData } from "../models/revenueAnalyticsData";
@@ -41,15 +42,15 @@ const RevenueDataProvider: FunctionComponent<RevenueDataProviderProps> = (
     // Load the revenue analytics data
     useMemo(() => {
         try {
-            if (revenueAnalyticsData) {
-                setRevenueAnalyticsData(revenueAnalyticsData);
+            if (revenueAnalyticsDataJson) {
+                setRevenueAnalyticsData(revenueAnalyticsDataJson);
                 setIsRevenueAnalyticsDataError(false);
             }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             setIsRevenueAnalyticsDataError(true);
         }
-    }, [ revenueAnalyticsData ]);
+    }, [ revenueAnalyticsDataJson ]);
 
     return (
         <RevenueDataContext.Provider
