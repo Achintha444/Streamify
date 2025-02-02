@@ -1,6 +1,7 @@
 import { FunctionComponent, PropsWithChildren, ReactElement, useMemo, useState } from "react";
 import revenueDataJson from "../../../assets/data/revenueData.json";
 import RevenueDataContext from "../contexts/revenueDataContext";
+import { RevenueAnalyticsData } from "../models/revenueAnalyticsData";
 import { RevenueData } from "../models/revenueData";
 
 /**
@@ -21,7 +22,10 @@ const RevenueDataProvider: FunctionComponent<RevenueDataProviderProps> = (
 
     const [ isRevenueDataError, setIsRevenueDataError ] = useState<boolean>(false);
     const [ RevenueData, setRevenueData ] = useState<RevenueData | null>(null);
+    const [ isRevenueAnalyticsDataError, setIsRevenueAnalyticsDataError ] = useState<boolean>(false);
+    const [ revenueAnalyticsData, setRevenueAnalyticsData ] = useState<RevenueAnalyticsData | null>(null);
 
+    // Load the revenue data
     useMemo(() => {
         try {
             if (revenueDataJson) {
@@ -34,10 +38,25 @@ const RevenueDataProvider: FunctionComponent<RevenueDataProviderProps> = (
         }
     }, [ revenueDataJson ]);
 
+    // Load the revenue analytics data
+    useMemo(() => {
+        try {
+            if (revenueAnalyticsData) {
+                setRevenueAnalyticsData(revenueAnalyticsData);
+                setIsRevenueAnalyticsDataError(false);
+            }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            setIsRevenueAnalyticsDataError(true);
+        }
+    }, [ revenueAnalyticsData ]);
+
     return (
         <RevenueDataContext.Provider
             value={ {
+                isRevenueAnalyticsDataError: isRevenueAnalyticsDataError,
                 isRevenueDataError: isRevenueDataError,
+                revenueAnalyticsData: revenueAnalyticsData,
                 revenueData: RevenueData
             } }
         >
