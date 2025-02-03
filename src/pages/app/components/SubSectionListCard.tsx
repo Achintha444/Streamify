@@ -26,7 +26,7 @@ export interface SubSectionListCardItem {
     /**
      * image URL
      */
-    imageUrl: string;
+    imageUrl?: string;
 }
 
 interface SubSectionListCardProps {
@@ -63,11 +63,16 @@ export const SubSectionListCard: FunctionComponent<SubSectionListCardProps> = (
                                         { addLeadingZero(contentItem.number) }
                                     </Typography>
                                 </Grid>
-                                <img
-                                    className={ styles.subSectionListCardImage }
-                                    src={ contentItem.imageUrl }
-                                    alt="random"
-                                />
+                                {
+                                    contentItem.imageUrl
+                                        && (
+                                            <img
+                                                className={ styles.subSectionListCardImage }
+                                                src={ contentItem.imageUrl }
+                                                alt="random"
+                                            />
+                                        )
+                                }
                                 <Stack justifyContent="center">
                                     <Typography variant="body1">
                                         { contentItem.title }
