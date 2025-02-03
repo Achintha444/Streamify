@@ -1,0 +1,52 @@
+{
+    "regions": {
+        "Asia": {
+            "revenue": 2450000,
+            "color": "#4CAF50",
+            "coordinates": [
+                34.0479,
+                100.6197
+            ]
+        },
+        "Europe": {
+            "revenue": 1820000,
+            "color": "#2196F3",
+            "coordinates": [
+                54.5260,
+                15.2551
+            ]
+        },
+        "North America": {
+            "revenue": 3150000,
+            "color": "#9C27B0",
+            "coordinates": [
+                47.7511,
+                -120.7401
+            ]
+        },
+        "South America": {
+            "revenue": 875000,
+            "color": "#FF9800",
+            "coordinates": [
+                -8.7832,
+                -55.4915
+            ]
+        },
+        "Africa": {
+            "revenue": 620000,
+            "color": "#F44336",
+            "coordinates": [
+                8.7832,
+                34.5085
+            ]
+        },
+        "Oceania": {
+            "revenue": 430000,
+            "color": "#795548",
+            "coordinates": [
+                -25.2744,
+                133.7751
+            ]
+        }
+    }
+}

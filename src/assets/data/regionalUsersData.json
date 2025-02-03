@@ -1,0 +1,88 @@
+{
+    "regions": {
+        "Asia": {
+            "revenue": {
+                "amount": 2450000,
+                "color": "#4CAF50"
+            },
+            "users": {
+                "count": 1850000,
+                "color": "#8BC34A"
+            },
+            "coordinates": [
+                34.0479,
+                100.6197
+            ]
+        },
+        "Europe": {
+            "revenue": {
+                "amount": 1820000,
+                "color": "#2196F3"
+            },
+            "users": {
+                "count": 1320000,
+                "color": "#03A9F4"
+            },
+            "coordinates": [
+                54.5260,
+                15.2551
+            ]
+        },
+        "North America": {
+            "revenue": {
+                "amount": 3150000,
+                "color": "#9C27B0"
+            },
+            "users": {
+                "count": 2450000,
+                "color": "#E91E63"
+            },
+            "coordinates": [
+                47.7511,
+                -120.7401
+            ]
+        },
+        "South America": {
+            "revenue": {
+                "amount": 875000,
+                "color": "#FF9800"
+            },
+            "users": {
+                "count": 680000,
+                "color": "#FFC107"
+            },
+            "coordinates": [
+                -8.7832,
+                -55.4915
+            ]
+        },
+        "Africa": {
+            "revenue": {
+                "amount": 620000,
+                "color": "#F44336"
+            },
+            "users": {
+                "count": 920000,
+                "color": "#FF5722"
+            },
+            "coordinates": [
+                8.7832,
+                34.5085
+            ]
+        },
+        "Oceania": {
+            "revenue": {
+                "amount": 430000,
+                "color": "#795548"
+            },
+            "users": {
+                "count": 310000,
+                "color": "#607D8B"
+            },
+            "coordinates": [
+                -25.2744,
+                133.7751
+            ]
+        }
+    }
+}
